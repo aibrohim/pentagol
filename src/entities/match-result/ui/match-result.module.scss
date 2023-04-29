@@ -1,6 +1,4 @@
 .MatchResult {
-  width: 300px;
-  margin: 20px auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,8 +6,10 @@
 }
 
 .MatchInfo {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: #f4f5f7;
   padding: 10px 20px;
   border-radius: 10px;

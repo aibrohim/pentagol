@@ -6,8 +6,90 @@ import { MatchResult, MatchResultSchema } from "@/entities/match-result";
 
 import Barsa from "@/shared/assets/img/barcelona.png";
 import Liver from "@/shared/assets/img/liverpool.jpeg";
+import { MatchesResults } from "@/features/matches-results";
+import { Container } from "@/shared/ui/container";
 
 const sampleMatchInfo: MatchResultSchema[] = [
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
+  {
+    matchId: 1,
+    matchDateTime: "2022-12-12T11:23",
+    clubA: { clubId: 12, name: "Barcelona", img: Barsa },
+    clubAScore: 12,
+    clubB: { clubId: 13, name: "Real", img: Liver },
+    clubBScore: 13,
+  },
   {
     matchId: 1,
     matchDateTime: "2022-12-12T11:23",
@@ -33,7 +115,9 @@ export const App = () => {
     <div className={classNames("App", {}, [theme])}>
       <Header />
       <div className="Page">
-        <MatchResult matchInfo={sampleMatchInfo[0]} />
+        <Container>
+          <MatchesResults results={sampleMatchInfo} />
+        </Container>
       </div>
     </div>
   );
