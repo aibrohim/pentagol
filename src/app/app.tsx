@@ -1,12 +1,18 @@
-import { useTheme } from "@/shared/config/theme";
-import { classNames } from "@/shared/lib/classNames";
+import { useEffect } from "react";
+
+import { Main } from "@/pages/main";
+
 import { Header } from "@/widgets/header";
-import "./assets/styles/main.scss";
 
 import { getLeagues } from "@/features/leagues/model/services";
-import { Main } from "@/pages/main";
+import { getTopArticles } from "@/widgets/top-articles/model/services/getTopArticles";
+
+import { useTheme } from "@/shared/config/theme";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useEffect } from "react";
+
+import { classNames } from "@/shared/lib/classNames";
+
+import "./assets/styles/main.scss";
 
 export const App = () => {
   const { theme } = useTheme();
@@ -15,6 +21,7 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(getLeagues());
+    dispatch(getTopArticles());
   }, []);
 
   return (

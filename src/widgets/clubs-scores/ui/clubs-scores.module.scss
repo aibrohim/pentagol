@@ -1,7 +1,12 @@
 .ClubsScores {
+  width: 415px;
   border-radius: 10px;
   background-color: #f4f5f7;
   padding: 20px;
+}
+
+:global(.App.Dark) .ClubsScores {
+  background-color: #222327;
 }
 
 .Title {

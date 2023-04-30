@@ -1,0 +1,22 @@
+.TopArticles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  gap: 20px;
+}
+
+.ArticleWrapper:first-child {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: 483px;
+}
+
+.ArticleWrapper:first-child h3 {
+  font: var(--heading-2);
+}
+
+.Article {
+  height: 100%;
+}

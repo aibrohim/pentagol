@@ -1,2 +1,13 @@
 .main {
 }
+
+.TopArticlesScoresWrapper {
+  margin-top: 60px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.TopArticles {
+  flex-grow: 1;
+  margin-right: 20px;
+}

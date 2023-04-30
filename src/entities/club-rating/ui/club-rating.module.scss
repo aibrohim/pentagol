@@ -10,6 +10,10 @@
   }
 }
 
+:global(.App.Dark) .ClubRating:nth-child(odd) {
+  background-color: #16171b;
+}
+
 .ClubRating td {
   padding: 10px;
 

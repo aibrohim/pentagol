@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: auto;
   padding: 0;
   margin: 0;
   font: var(--font-m);
@@ -40,4 +41,8 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+img {
+  max-width: 100%;
 }

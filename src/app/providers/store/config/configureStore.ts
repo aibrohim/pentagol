@@ -4,6 +4,7 @@ import { counterReducer } from "@/features/counter/model";
 import { leaguesReducer } from "@/features/leagues/model";
 import { matchesReducer } from "@/pages/main/model/slice/matches-slice";
 import { scoresReducer } from "@/widgets/clubs-scores/model/slice";
+import { articlesReducer } from "./slices";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     leagues: leaguesReducer,
     matches: matchesReducer,
     scores: scoresReducer,
+    articles: articlesReducer,
   },
 });
 
