@@ -1,0 +1,39 @@
+.ClubRating {
+  border-radius: 6px;
+  height: 51px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+
+  &:nth-child(odd) {
+    background-color: #fff;
+  }
+}
+
+.ClubRating td {
+  padding: 10px;
+
+  &:not(:nth-child(2)) {
+    text-align: center;
+  }
+}
+
+.ClubRating:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+.ClubRating:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+
+.ClubRating:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+.ClubRating:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.ClubName {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

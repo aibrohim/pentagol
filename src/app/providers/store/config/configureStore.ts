@@ -3,12 +3,14 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { counterReducer } from "@/features/counter/model";
 import { leaguesReducer } from "@/features/leagues/model";
 import { matchesReducer } from "@/pages/main/model/slice/matches-slice";
+import { scoresReducer } from "@/widgets/clubs-scores/model/slice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     leagues: leaguesReducer,
     matches: matchesReducer,
+    scores: scoresReducer,
   },
 });
 
