@@ -1,17 +1,20 @@
-import { FC } from "react";
-import classes from "./article-info.module.scss";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
-import { selectArticleDetails } from "../model/selectors";
 import { normalizeDate } from "@/shared/lib/normalize-date";
+import { FC } from "react";
+import { selectArticleDetails } from "../model/selectors";
+import classes from "./article-info.module.scss";
+import { classNames } from "@/shared/lib/classNames";
 
-interface ArticleInfoProps {}
+interface ArticleInfoProps {
+  className?: string;
+}
 
-export const ArticleInfo: FC<ArticleInfoProps> = ({}) => {
+export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
   const articleDetails = useAppSelector(selectArticleDetails);
 
   if (!articleDetails) return null;
   return (
-    <section className={classes.ArticleInfo}>
+    <section className={classNames(classes.ArticleInfo, {}, [className])}>
       <time className={classes.Time}>
         {normalizeDate(articleDetails.publishedDate)}
       </time>
