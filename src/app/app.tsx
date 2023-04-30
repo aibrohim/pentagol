@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
 import { Main } from "@/pages/main";
 
@@ -13,6 +13,7 @@ import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { classNames } from "@/shared/lib/classNames";
 
 import "./assets/styles/main.scss";
+import { RoutesProvider } from "./providers/router";
 
 export const App = () => {
   const { theme } = useTheme();
@@ -28,7 +29,9 @@ export const App = () => {
     <div className={classNames("App", {}, [theme])}>
       <Header />
       <div className="Page">
-        <Main />
+        <Suspense fallback="Loading...">
+          <RoutesProvider />
+        </Suspense>
       </div>
     </div>
   );

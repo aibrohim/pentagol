@@ -14,6 +14,7 @@ function fetchArticles() {
               title: "MBappe",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 2,
@@ -21,6 +22,7 @@ function fetchArticles() {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 3,
@@ -28,6 +30,7 @@ function fetchArticles() {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 4,
@@ -35,6 +38,7 @@ function fetchArticles() {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 5,
@@ -42,6 +46,7 @@ function fetchArticles() {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
           ],
         }),

@@ -6,9 +6,11 @@ import { FC, useState } from "react";
 import { getLatestNews } from "../model/services";
 import classes from "./latest-news.module.scss";
 
-interface LatestNewsProps {}
+interface LatestNewsProps {
+  withPagination?: boolean;
+}
 
-export const LatestNews: FC<LatestNewsProps> = () => {
+export const LatestNews: FC<LatestNewsProps> = ({ withPagination = true }) => {
   const [page, setPage] = useState<number>(1);
   const dispatch = useAppDispatch();
 
@@ -23,7 +25,7 @@ export const LatestNews: FC<LatestNewsProps> = () => {
     <section className={classes.LatestNews}>
       <NewsHeader>So'nggi yangiliklar</NewsHeader>
       <LatestArticlesList />
-      <LoadmoreBtn onClick={handleLoadMoreClick} />
+      {withPagination && <LoadmoreBtn onClick={handleLoadMoreClick} />}
     </section>
   );
 };

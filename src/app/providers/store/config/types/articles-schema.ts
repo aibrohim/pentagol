@@ -5,4 +5,6 @@ export interface ArticlesSchema {
   topNewsLoading: boolean;
   latestArticles: ArticleSchema[] | null;
   latestArticlesLoading: boolean;
+  articleDetails: ArticleSchema | null;
+  articleDetailsLoading: boolean;
 }

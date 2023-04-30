@@ -14,6 +14,7 @@ function fetchLatestNews(page: number = 1) {
               title: "MBappe",
               publishedDate: "2022-12-12T12:34",
               description: "Lorem 123",
+              body: "",
             },
             {
               id: 2,
@@ -21,6 +22,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 3,
@@ -28,6 +30,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 4,
@@ -35,6 +38,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 1,
@@ -42,6 +46,7 @@ function fetchLatestNews(page: number = 1) {
               title: "MBappe",
               publishedDate: "2022-12-12T12:34",
               description: "Lorem 123",
+              body: "",
             },
             {
               id: 2,
@@ -49,6 +54,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 3,
@@ -56,6 +62,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
             {
               id: 4,
@@ -63,6 +70,7 @@ function fetchLatestNews(page: number = 1) {
               title: "Messi",
               publishedDate: "2022-12-12T12:34",
               description: "",
+              body: "",
             },
           ],
         }),

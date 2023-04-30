@@ -4,4 +4,5 @@ export interface ArticleSchema {
   title: string;
   publishedDate: string;
   description: string;
+  body: string;
 }
