@@ -3,4 +3,5 @@ export interface ArticleSchema {
   img: string;
   title: string;
   publishedDate: string;
+  description: string;
 }

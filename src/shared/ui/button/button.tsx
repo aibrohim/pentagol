@@ -9,6 +9,7 @@ export enum BtnTheme {
   CLEAR = "Clear",
   PRIMARY = "Primary",
   DEFAULT = "Default",
+  SECONDARY = "Secondary",
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLElement> {
