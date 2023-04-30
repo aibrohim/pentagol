@@ -5,7 +5,6 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { getLeagues } from "@/features/leagues/model/selectors";
 import { ClubsRatingTable } from "@/features/clubs-rating-table";
 
-import Barsa from "@/shared/assets/img/barcelona.png";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { getScoresByLeague } from "../model/services/getScoresByLeague";
 import { selectScores, selectScoresLoading } from "../model/selectors";

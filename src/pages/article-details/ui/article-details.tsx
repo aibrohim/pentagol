@@ -14,6 +14,7 @@ import { LatestNews } from "@/widgets/latest-news";
 import { getLatestNews } from "@/widgets/latest-news/model/services";
 
 import classes from "./article-details.module.scss";
+import { MainArticles } from "@/widgets/main-articles";
 
 const ArticleDetails: FC = () => {
   const dispatch = useAppDispatch();
@@ -29,7 +30,8 @@ const ArticleDetails: FC = () => {
       dispatch(clearArticleDetails());
       dispatch(clearLatestArticles());
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   const loading = useAppSelector(selectArticleDetailsLoading);
 
@@ -43,6 +45,7 @@ const ArticleDetails: FC = () => {
     <Container>
       <div className={classes.TopContent}>
         <ArticleInfo className={classes.Info} />
+        <MainArticles />
       </div>
 
       <LatestNews />

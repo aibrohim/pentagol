@@ -22,9 +22,13 @@ export const LastWeekMatches: FC<LastWeekMatchesProps> = () => {
       {matchesLoading ? (
         <p>Loading...</p>
       ) : matches ? (
-        <MatchesResults results={matches} />
+        matches.length ? (
+          <MatchesResults results={matches} />
+        ) : (
+          <p>O'yinlar yo'q</p>
+        )
       ) : (
-        <p>Iltimos, ligani tanlang</p>
+        <p>Ligani tanlang</p>
       )}
     </section>
   );

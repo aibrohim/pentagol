@@ -4,6 +4,8 @@ import { LeagueSchema } from "../model/types";
 import { BtnTheme, Button } from "@/shared/ui/button";
 import { classNames } from "@/shared/lib/classNames";
 
+import Barsa from "@/shared/assets/img/barcelona.png";
+
 interface LeagueProps {
   league: LeagueSchema;
   active?: boolean;
@@ -28,7 +30,7 @@ export const League: FC<LeagueProps> = ({
       icon={
         <img
           className={classes.Img}
-          src={league.img}
+          src={Barsa}
           alt={league.name}
           width={28}
           height={28}

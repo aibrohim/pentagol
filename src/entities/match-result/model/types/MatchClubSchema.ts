@@ -1,5 +1,5 @@
 export interface ClubSchema {
-  clubId: number;
+  id: number;
   name: string;
   img: string;
 }

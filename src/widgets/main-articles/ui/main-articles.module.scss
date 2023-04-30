@@ -1,0 +1,18 @@
+.MainArticles {
+  flex-grow: 1;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f4f5f7;
+}
+
+:global(.App.Dark) .MainArticles {
+  background-color: #222327;
+}
+
+.Title {
+  margin: 0;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+}

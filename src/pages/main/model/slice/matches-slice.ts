@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { MatchesSchema } from "../types/matches-schema";
-import { getCurrentWeekMatches } from "@/widgets/current-week-matches/model/services";
 import { getLastWeekMatches } from "@/widgets/last-week-matches/model/services";
+import { getCurrentWeekMatches } from "@/widgets/current-week-matches/model/services";
 
 const initialState: MatchesSchema = {
   currentWeekMatches: null,
@@ -22,7 +22,7 @@ export const matchesSlice = createSlice({
       })
       .addCase(getCurrentWeekMatches.fulfilled, (state, action) => {
         state.currentWeekMatchesLoading = false;
-        state.currentWeekMatches = action.payload.data;
+        state.currentWeekMatches = action.payload;
       })
       .addCase(getCurrentWeekMatches.rejected, (state) => {
         state.currentWeekMatchesLoading = false;
@@ -33,7 +33,7 @@ export const matchesSlice = createSlice({
       })
       .addCase(getLastWeekMatches.fulfilled, (state, action) => {
         state.lastWeekMatchesLoading = false;
-        state.lastWeekMatches = action.payload.data;
+        state.lastWeekMatches = action.payload;
       })
       .addCase(getLastWeekMatches.rejected, (state) => {
         state.lastWeekMatchesLoading = false;

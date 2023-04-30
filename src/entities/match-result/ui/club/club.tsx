@@ -1,7 +1,8 @@
+import { classNames } from "@/shared/lib/classNames";
 import { FC, HTMLAttributes } from "react";
 import classes from "./club.module.scss";
-import { ClubSchema } from "../../model/types";
-import { classNames } from "@/shared/lib/classNames";
+
+import Barsa from "@/shared/assets/img/barcelona.png";
 
 export enum Align {
   LEFT = "Left",
@@ -9,12 +10,12 @@ export enum Align {
 }
 
 interface ClubProps extends HTMLAttributes<HTMLElement> {
-  club: ClubSchema;
+  clubName: string;
   align?: Align;
   won?: boolean;
 }
 
-export const Club: FC<ClubProps> = ({ club, align = Align.LEFT, won }) => {
+export const Club: FC<ClubProps> = ({ clubName, align = Align.LEFT, won }) => {
   return (
     <div
       className={classNames(classes.Club, { [classes.Won]: won }, [
@@ -23,12 +24,12 @@ export const Club: FC<ClubProps> = ({ club, align = Align.LEFT, won }) => {
     >
       <img
         className={classes.ClubImg}
-        src={club.img}
-        alt={club.name}
+        src={Barsa}
+        alt={clubName}
         width={25}
         height={25}
       />
-      <span>{club.name}</span>
+      <span>{clubName}</span>
     </div>
   );
 };

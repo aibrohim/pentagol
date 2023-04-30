@@ -3,9 +3,9 @@ import { ClubSchema } from "./MatchClubSchema";
 export interface MatchResultSchema {
   matchId: number;
   leaugeId: number;
-  matchDateTime: string;
-  clubA: ClubSchema;
+  matchDate: string;
+  clubAName: string;
   clubAScore: number;
-  clubB: ClubSchema;
+  clubBName: string;
   clubBScore: number;
 }

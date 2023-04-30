@@ -18,7 +18,7 @@ export const ClubsRatingTable: FC<ClubsRatingTableProps> = ({ clubs }) => {
       </thead>
       <tbody>
         {clubs.map((club) => (
-          <ClubRating key={club.clubId} clubInfo={club} />
+          <ClubRating key={club.id} clubInfo={club} />
         ))}
       </tbody>
     </table>

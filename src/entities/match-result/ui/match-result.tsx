@@ -20,7 +20,7 @@ export const MatchResult: FC<MatchResultProps> = ({ className, matchInfo }) => {
   return (
     <div className={classNames(classes.MatchResult, {}, [className])}>
       <article className={classes.MatchInfo}>
-        <Club club={matchInfo.clubA} won={isClubAWon} />
+        <Club clubName={matchInfo.clubAName} won={isClubAWon} />
 
         <div className={classes.Scores}>
           <span className={classNames("", { [classes.WonScore]: isClubAWon })}>
@@ -32,10 +32,14 @@ export const MatchResult: FC<MatchResultProps> = ({ className, matchInfo }) => {
           </span>
         </div>
 
-        <Club club={matchInfo.clubB} align={Align.RIGHT} won={isClubBWon} />
+        <Club
+          clubName={matchInfo.clubBName}
+          align={Align.RIGHT}
+          won={isClubBWon}
+        />
       </article>
       <time className={classes.MatchDateTime}>
-        {normalizeDate(matchInfo.matchDateTime)}
+        {normalizeDate(matchInfo.matchDate)}
       </time>
     </div>
   );

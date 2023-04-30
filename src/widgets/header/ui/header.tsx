@@ -5,12 +5,15 @@ import { Container } from "@/shared/ui/container";
 import Logo from "@/shared/assets/img/logo.png";
 
 import classes from "./header.module.scss";
+import { Link } from "react-router-dom";
 
 export const Header: FC = () => {
   return (
     <header className={classes.Header}>
       <Container className={classes.Container}>
-        <img src={Logo} alt="" />
+        <Link to={"/"}>
+          <img src={Logo} alt="Logo" />
+        </Link>
         <ThemeToggler />
       </Container>
     </header>
