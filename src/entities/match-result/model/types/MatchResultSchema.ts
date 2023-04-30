@@ -1,5 +1,3 @@
-import { ClubSchema } from "./MatchClubSchema";
-
 export interface MatchResultSchema {
   matchId: number;
   leaugeId: number;

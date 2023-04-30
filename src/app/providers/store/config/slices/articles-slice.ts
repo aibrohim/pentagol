@@ -44,10 +44,14 @@ export const articlesSlice = createSlice({
       .addCase(getLatestNews.fulfilled, (state, action) => {
         state.latestArticlesLoading = false;
 
-        state.latestArticles = [
-          ...action.payload,
-          ...(state.latestArticles ?? []),
-        ];
+        if (state.latestArticles) {
+          state.latestArticles.content = [
+            ...action.payload.content,
+            ...(state.latestArticles?.content ?? []),
+          ];
+        } else {
+          state.latestArticles = action.payload;
+        }
       })
       .addCase(getLatestNews.rejected, (state) => {
         state.latestArticlesLoading = false;

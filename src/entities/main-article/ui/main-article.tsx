@@ -12,7 +12,7 @@ export const MainArticle: FC<MainArticleProps> = ({ article }) => {
     <article className={classes.MainArticle}>
       <Link className={classes.Link} to={`/article/${article.id}`}>
         <h3 className={classes.Title}>{article.title}</h3>
-        <time className={classes.Time}>{article.publishedDate}</time>
+        <time className={classes.Time}>{article.publishedAt}</time>
       </Link>
     </article>
   );

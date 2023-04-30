@@ -5,7 +5,7 @@ import {
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Container } from "@/shared/ui/container";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useParams } from "react-router";
 import { selectArticleDetailsLoading } from "../model/selectors";
 import { getArticleDetails } from "../model/services";
@@ -21,10 +21,15 @@ const ArticleDetails: FC = () => {
 
   const { id } = useParams();
 
+  const fetched = useRef<boolean>();
+
   useEffect(() => {
     if (id) {
-      dispatch(getArticleDetails(+id));
-      dispatch(getLatestNews(1));
+      if (!fetched.current) {
+        dispatch(getArticleDetails(+id));
+        dispatch(getLatestNews());
+        fetched.current = true;
+      }
     }
     return () => {
       dispatch(clearArticleDetails());

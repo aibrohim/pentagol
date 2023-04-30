@@ -10,10 +10,10 @@ export const LatestArticlesList: FC<LatestArticlesListProps> = () => {
   const latestNews = useAppSelector(selectLatestNews);
   const latestNewsLoading = useAppSelector(selectLatestNewsLoading);
 
-  if (!latestNews) return <p>Yangiliklar topilmadi (</p>;
+  if (!latestNews?.content) return <p>Yangiliklar topilmadi (</p>;
   return (
     <div className={classes.LatestArticlesList}>
-      {latestNews.map((article) => (
+      {latestNews.content.map((article) => (
         <ArticleCard article={article} />
       ))}
       {latestNewsLoading && <p>Loading...</p>}

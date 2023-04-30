@@ -16,14 +16,16 @@ export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
   return (
     <section className={classNames(classes.ArticleInfo, {}, [className])}>
       <time className={classes.Time}>
-        {normalizeDate(articleDetails.publishedDate)}
+        {normalizeDate(articleDetails.publishedAt)}
       </time>
       <h1 className={classes.Title}>{articleDetails.title}</h1>
       <p className={classes.Description}>{articleDetails.description}</p>
 
       <img
         className={classes.Img}
-        src={articleDetails.img}
+        src={
+          "https://www.aljazeera.com/wp-content/uploads/2021/06/2021-06-28T220439Z_2107545029_UP1EH6S1PBPB2_RTRMADP_3_SOCCER-EURO-FRA-SWI-REPORT.jpg"
+        }
         alt={articleDetails.title}
       />
 

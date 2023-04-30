@@ -16,12 +16,16 @@ export const TopArticle: FC<TopArticleProps> = ({ article, className }) => {
       <Link className={classes.Link} to={`/article/${article.id}`}>
         <div className={classes.Content}>
           <h3 className={classes.Title}>{article.title}</h3>
-          <time className={classes.PublishedDate}>
-            {normalizeDate(article.publishedDate)}
+          <time className={classes.publishedAt}>
+            {normalizeDate(article.publishedAt)}
           </time>
         </div>
       </Link>
-      <img className={classes.Img} src={article.img} alt={article.img} />
+      <img
+        className={classes.Img}
+        src="https://www.aljazeera.com/wp-content/uploads/2021/06/2021-06-28T220439Z_2107545029_UP1EH6S1PBPB2_RTRMADP_3_SOCCER-EURO-FRA-SWI-REPORT.jpg"
+        alt={article.img}
+      />
     </div>
   );
 };

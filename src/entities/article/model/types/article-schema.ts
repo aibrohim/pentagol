@@ -2,7 +2,7 @@ export interface ArticleSchema {
   id: number;
   img: string;
   title: string;
-  publishedDate: string;
+  publishedAt: string;
   description: string;
   body: string;
 }

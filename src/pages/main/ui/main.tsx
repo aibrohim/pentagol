@@ -4,7 +4,7 @@ import { CurrentWeekMatches } from "@/widgets/current-week-matches";
 import { LastWeekMatches } from "@/widgets/last-week-matches";
 import { LatestNews } from "@/widgets/latest-news";
 import { TopArticles } from "@/widgets/top-articles";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import classes from "./main.module.scss";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { getLatestNews } from "@/widgets/latest-news/model/services";
@@ -13,8 +13,14 @@ import { clearLatestArticles } from "@/app/providers/store/config/slices";
 const Main: FC = () => {
   const dispatch = useAppDispatch();
 
+  const fetched = useRef<boolean>();
+
   useEffect(() => {
-    dispatch(getLatestNews());
+    if (!fetched.current) {
+      dispatch(getLatestNews());
+      fetched.current = true;
+    }
+
     return () => {
       dispatch(clearLatestArticles());
     };
