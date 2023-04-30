@@ -1,10 +1,14 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
 import { counterReducer } from "@/features/counter/model";
+import { leaguesReducer } from "@/features/leagues/model";
+import { matchesReducer } from "@/pages/main/model/slice/matches-slice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    leagues: leaguesReducer,
+    matches: matchesReducer,
   },
 });
 

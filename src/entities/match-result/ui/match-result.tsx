@@ -14,22 +14,25 @@ interface MatchResultProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const MatchResult: FC<MatchResultProps> = ({ className, matchInfo }) => {
+  const isClubAWon = matchInfo.clubAScore > matchInfo.clubBScore;
+  const isClubBWon = matchInfo.clubAScore < matchInfo.clubBScore;
+
   return (
     <div className={classNames(classes.MatchResult, {}, [className])}>
       <article className={classes.MatchInfo}>
-        <Club club={matchInfo.clubA} won />
+        <Club club={matchInfo.clubA} won={isClubAWon} />
 
         <div className={classes.Scores}>
-          <span className={classNames("", { [classes.WonScore]: true })}>
-            3
+          <span className={classNames("", { [classes.WonScore]: isClubAWon })}>
+            {matchInfo.clubAScore}
           </span>
           :
-          <span className={classNames("", { [classes.WonScore]: false })}>
-            0
+          <span className={classNames("", { [classes.WonScore]: isClubBWon })}>
+            {matchInfo.clubBScore}
           </span>
         </div>
 
-        <Club club={matchInfo.clubB} align={Align.RIGHT} />
+        <Club club={matchInfo.clubB} align={Align.RIGHT} won={isClubBWon} />
       </article>
       <time className={classes.MatchDateTime}>
         {normalizeDate(matchInfo.matchDateTime)}

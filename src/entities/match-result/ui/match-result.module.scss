@@ -17,6 +17,10 @@
   gap: 24px;
 }
 
+:global(.App.Dark) .MatchInfo {
+  background-color: #000000;
+}
+
 .Scores {
   font-size: 20px;
   line-height: 24px;
@@ -36,4 +40,9 @@
   font-size: 12px;
   line-height: 14px;
   font-weight: 500;
+}
+
+:global(.App.Dark) .MatchDateTime {
+  background-color: #000000;
+  border-color: #000;
 }
