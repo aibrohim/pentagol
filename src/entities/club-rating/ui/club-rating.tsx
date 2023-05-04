@@ -2,8 +2,6 @@ import { FC } from "react";
 import classes from "./club-rating.module.scss";
 import { ClubRatingSchema } from "../model/types";
 
-import Barsa from "@/shared/assets/img/barcelona.png";
-
 interface ClubRatingProps {
   clubInfo: ClubRatingSchema;
 }
@@ -14,7 +12,12 @@ export const ClubRating: FC<ClubRatingProps> = ({ clubInfo }) => {
       <td>{clubInfo.id}</td>
       <td>
         <span className={classes.ClubName}>
-          <img src={Barsa} width={30} height={30} alt={clubInfo.name} />
+          <img
+            src="/img/barcelona.png"
+            width={30}
+            height={30}
+            alt={clubInfo.name}
+          />
           {clubInfo.name}
         </span>
       </td>

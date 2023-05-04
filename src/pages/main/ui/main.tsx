@@ -1,35 +1,18 @@
-import { Container } from "@/shared/ui/container";
+import { FC } from "react";
+
 import { ClubsScores } from "@/widgets/clubs-scores";
 import { CurrentWeekMatches } from "@/widgets/current-week-matches";
 import { LastWeekMatches } from "@/widgets/last-week-matches";
 import { LatestNews } from "@/widgets/latest-news";
 import { TopArticles } from "@/widgets/top-articles";
-import { FC, useEffect, useRef } from "react";
+
+import { Container } from "@/shared/ui/container";
+
 import classes from "./main.module.scss";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { getLatestNews } from "@/widgets/latest-news/model/services";
-import { clearLatestArticles } from "@/app/providers/store/config/slices";
 
 const Main: FC = () => {
-  const dispatch = useAppDispatch();
-
-  const fetched = useRef<boolean>();
-
-  useEffect(() => {
-    if (!fetched.current) {
-      dispatch(getLatestNews());
-      fetched.current = true;
-    }
-
-    return () => {
-      dispatch(clearLatestArticles());
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <Container>
-      <h1>Main Page</h1>
       <CurrentWeekMatches />
       <LastWeekMatches />
 

@@ -1,0 +1,94 @@
+{
+  "leagues": [
+    {
+      "id": 1,
+      "name": "Nimadir liga"
+    },
+    {
+      "id": 2,
+      "name": "Pismadon"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 2,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 3,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 4,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 5,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 6,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 7,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 8,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 9,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    },
+    {
+      "id": 10,
+      "img": "",
+      "title": "Barsa realni yutdi",
+      "publishedAt": "2022-12-12T23:23",
+      "description": "Falon narsa bo'ldi",
+      "body": "Body of article"
+    }
+  ]
+}

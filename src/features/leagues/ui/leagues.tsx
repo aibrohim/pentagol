@@ -1,9 +1,11 @@
-import { League } from "@/entities/league";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { FC, useEffect, useState } from "react";
-import { getLeagues } from "../model/selectors";
-import classes from "./leagues.module.scss";
+
+import { League } from "@/entities/league";
 import { classNames } from "@/shared/lib/classNames";
+
+import { useGetLeaguesQuery } from "../model";
+
+import classes from "./leagues.module.scss";
 
 interface LeaguesProps {
   className?: string;
@@ -16,7 +18,7 @@ export const Leagues: FC<LeaguesProps> = ({
   selectedLeague,
   onLeagueSelected,
 }) => {
-  const leagues = useAppSelector(getLeagues);
+  const { data: leagues, error } = useGetLeaguesQuery(null);
 
   const [activeLeague, setActiveLeague] = useState<number | undefined>();
 
@@ -43,6 +45,7 @@ export const Leagues: FC<LeaguesProps> = ({
 
   return (
     <div className={classNames(classes.Leagues, {}, [className])}>
+      <span>{error?.error}</span>
       {leagues?.map((league) => (
         <League
           key={league.id}

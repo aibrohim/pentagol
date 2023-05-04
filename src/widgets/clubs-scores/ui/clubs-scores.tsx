@@ -1,20 +1,20 @@
-import { ChangeEvent, ChangeEventHandler, FC, HTMLAttributes } from "react";
-import classes from "./clubs-scores.module.scss";
-import { Select } from "@/shared/ui/select";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
-import { getLeagues } from "@/features/leagues/model/selectors";
 import { ClubsRatingTable } from "@/features/clubs-rating-table";
+import { useAppSelector } from "@/shared/hooks/useAppSelector";
+import { Select } from "@/shared/ui/select";
+import { ChangeEvent, FC, HTMLAttributes } from "react";
+import classes from "./clubs-scores.module.scss";
 
+import { useGetLeaguesQuery } from "@/features/leagues";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { getScoresByLeague } from "../model/services/getScoresByLeague";
 import { selectScores, selectScoresLoading } from "../model/selectors";
+import { getScoresByLeague } from "../model/services/getScoresByLeague";
 
 interface ClubsScoresProps extends HTMLAttributes<HTMLElement> {}
 
 export const ClubsScores: FC = ({ ...props }: ClubsScoresProps) => {
   const dispatch = useAppDispatch();
 
-  const leagues = useAppSelector(getLeagues);
+  const { data: leagues } = useGetLeaguesQuery(null);
   const scores = useAppSelector(selectScores);
   const scoresLoading = useAppSelector(selectScoresLoading);
 

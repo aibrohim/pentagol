@@ -1,19 +1,20 @@
 import { FC } from "react";
-import { ThemeToggler } from "@/widgets/theme-toggler";
 
+import Link from "next/link";
+
+import { ThemeToggler } from "@/widgets/theme-toggler";
 import { Container } from "@/shared/ui/container";
-import Logo from "@/shared/assets/img/logo.png";
 
 import classes from "./header.module.scss";
-import { Link } from "react-router-dom";
 
 export const Header: FC = () => {
   return (
     <header className={classes.Header}>
       <Container className={classes.Container}>
-        <Link to={"/"}>
-          <img src={Logo} alt="Logo" />
+        <Link href={"/"}>
+          <img src="/img/logo.png" alt="Logo" />
         </Link>
+
         <ThemeToggler />
       </Container>
     </header>

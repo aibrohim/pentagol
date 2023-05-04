@@ -1,1 +1,1 @@
-export * from "./getLeagues";
+export * from "./leaguesApi";

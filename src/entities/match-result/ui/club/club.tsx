@@ -1,8 +1,8 @@
-import { classNames } from "@/shared/lib/classNames";
 import { FC, HTMLAttributes } from "react";
-import classes from "./club.module.scss";
 
-import Barsa from "@/shared/assets/img/barcelona.png";
+import { classNames } from "@/shared/lib/classNames";
+
+import classes from "./club.module.scss";
 
 export enum Align {
   LEFT = "Left",
@@ -24,7 +24,7 @@ export const Club: FC<ClubProps> = ({ clubName, align = Align.LEFT, won }) => {
     >
       <img
         className={classes.ClubImg}
-        src={Barsa}
+        src="/img/barcelona.png"
         alt={clubName}
         width={25}
         height={25}

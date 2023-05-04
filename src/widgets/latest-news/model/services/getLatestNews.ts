@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { axiosInstance } from "@/shared/config/axios";
+import { axiosInstance } from "@/shared/config/data";
 
 function fetchLatestNews(page: number = 1) {
   return axiosInstance.get(`article/list?page=${page - 1}&size=4`);

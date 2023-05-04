@@ -10,12 +10,12 @@ interface ClubsRatingTableProps {
 export const ClubsRatingTable: FC<ClubsRatingTableProps> = ({ clubs }) => {
   return (
     <table className={classes.ClubsRatingTable}>
-      <thead>
+      {/* <thead>
         <th>№</th>
         <th>Команда</th>
         <th>И</th>
         <th>О</th>
-      </thead>
+      </thead> */}
       <tbody>
         {clubs.map((club) => (
           <ClubRating key={club.id} clubInfo={club} />

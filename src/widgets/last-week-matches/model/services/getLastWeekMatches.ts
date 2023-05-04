@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/shared/config/axios";
+import { axiosInstance } from "@/shared/config/data";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const fetchMatches = (leagueId: number) =>

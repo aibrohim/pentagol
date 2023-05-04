@@ -1,5 +1,5 @@
-:root {
-  --font-family-main: "Manrope", "Arial", sans-serif;
+.App {
+  --font-family-main: var(--font-manrope), "Arial", sans-serif;
   --font-family-secondary: "Roboto", "Arial", sans-serif;
 
   --font-size-s: 12px;

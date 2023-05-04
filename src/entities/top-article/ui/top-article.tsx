@@ -1,8 +1,12 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+
+import Link from "next/link";
+
 import { ArticleSchema } from "@/entities/article";
+
 import { classNames } from "@/shared/lib/classNames";
 import { normalizeDate } from "@/shared/lib/normalize-date";
+
 import classes from "./top-article.module.scss";
 
 interface TopArticleProps {
@@ -13,7 +17,7 @@ interface TopArticleProps {
 export const TopArticle: FC<TopArticleProps> = ({ article, className }) => {
   return (
     <div className={classNames(classes.TopArticle, {}, [className])}>
-      <Link className={classes.Link} to={`/article/${article.id}`}>
+      <Link className={classes.Link} href={`/article/${article.id}`}>
         <div className={classes.Content}>
           <h3 className={classes.Title}>{article.title}</h3>
           <time className={classes.publishedAt}>

@@ -1,13 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { getLatestNews } from "@/widgets/latest-news/model/services";
-import { getTopArticles } from "@/widgets/top-articles/model/services/getTopArticles";
 import { ArticlesSchema } from "../types/articles-schema";
 import { getArticleDetails } from "@/pages/article-details/model/services";
 
 const initialState: ArticlesSchema = {
-  topNews: null,
-  topNewsLoading: false,
   latestArticles: null,
   latestArticlesLoading: false,
   articleDetails: null,
@@ -26,17 +23,6 @@ export const articlesSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(getTopArticles.pending, (state) => {
-        state.topNewsLoading = true;
-      })
-      .addCase(getTopArticles.fulfilled, (state, action) => {
-        state.topNewsLoading = false;
-        state.topNews = action.payload;
-      })
-      .addCase(getTopArticles.rejected, (state) => {
-        state.topNewsLoading = false;
-      });
     builder
       .addCase(getLatestNews.pending, (state) => {
         state.latestArticlesLoading = true;

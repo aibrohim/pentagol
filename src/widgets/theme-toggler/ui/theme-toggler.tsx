@@ -1,8 +1,9 @@
 import { FC } from "react";
 
 import { useTheme } from "@/shared/config/theme";
-import { ReactComponent as Sun } from "@/shared/assets/icons/sun.svg";
 import { Button } from "@/shared/ui/button";
+
+import Sun from "@/shared/assets/icons/sun.svg";
 
 import classes from "./theme-toggler.module.scss";
 

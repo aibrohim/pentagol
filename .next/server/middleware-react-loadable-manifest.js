@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"../src/pages/main/ui/main.async.tsx -> ./main":{"id":"../src/pages/main/ui/main.async.tsx -> ./main","files":["static/chunks/src_pages_main_ui_main_tsx.js"]}}

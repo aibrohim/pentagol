@@ -1,38 +1,29 @@
-import { Suspense, useEffect } from "react";
+import { FC, ReactNode } from "react";
 
-import { Main } from "@/pages/main";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 import { Header } from "@/widgets/header";
 
-import { getLeagues } from "@/features/leagues/model/services";
-import { getTopArticles } from "@/widgets/top-articles/model/services/getTopArticles";
-
 import { useTheme } from "@/shared/config/theme";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-
 import { classNames } from "@/shared/lib/classNames";
 
-import "./assets/styles/main.scss";
-import { RoutesProvider } from "./providers/router";
+interface AppProps {
+  fonts: NextFontWithVariable[];
+  children: ReactNode;
+}
 
-export const App = () => {
+export const App: FC<AppProps> = ({ fonts, children }) => {
   const { theme } = useTheme();
 
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getLeagues());
-    dispatch(getTopArticles());
-  }, []);
-
   return (
-    <div className={classNames("App", {}, [theme])}>
+    <div
+      className={classNames("App", {}, [
+        theme,
+        ...fonts.map((font) => font.variable),
+      ])}
+    >
       <Header />
-      <div className="Page">
-        <Suspense fallback="Loading...">
-          <RoutesProvider />
-        </Suspense>
-      </div>
+      <div className="Page">{children}</div>
     </div>
   );
 };
