@@ -1,7 +1,10 @@
-import { FC, HTMLAttributes } from "react";
-import classes from "./main-article.module.scss";
+import { FC } from "react";
+
+import Link from "next/link";
+
 import { ArticleSchema } from "@/entities/article";
-import { Link } from "react-router-dom";
+
+import classes from "./main-article.module.scss";
 
 interface MainArticleProps {
   article: ArticleSchema;
@@ -10,7 +13,7 @@ interface MainArticleProps {
 export const MainArticle: FC<MainArticleProps> = ({ article }) => {
   return (
     <article className={classes.MainArticle}>
-      <Link className={classes.Link} to={`/article/${article.id}`}>
+      <Link className={classes.Link} href={`/article/${article.id}`}>
         <h3 className={classes.Title}>{article.title}</h3>
         <time className={classes.Time}>{article.publishedAt}</time>
       </Link>

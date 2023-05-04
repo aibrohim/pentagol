@@ -14,7 +14,7 @@ export const LatestArticlesList: FC<LatestArticlesListProps> = ({ page }) => {
   return (
     <div className={classes.LatestArticlesList}>
       {latestArticles.map((article) => (
-        <ArticleCard article={article} />
+        <ArticleCard key={article.id} article={article} />
       ))}
     </div>
   );

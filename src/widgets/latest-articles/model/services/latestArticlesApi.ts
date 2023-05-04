@@ -19,10 +19,15 @@ export const latestArticlesApi = baseApi.injectEndpoints({
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
-      merge: (currentCache, newItems) => {
-        currentCache.push(...newItems);
+      merge: (currentCache, newItems, { arg }) => {
+        if (arg !== 1) {
+          currentCache.push(...newItems);
+        } else {
+          currentCache = newItems;
+        }
       },
       forceRefetch({ currentArg, previousArg }) {
+        if (currentArg === 1) return true;
         return currentArg !== previousArg;
       },
     }),

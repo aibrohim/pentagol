@@ -1,23 +1,19 @@
 import { FC } from "react";
-import classes from "./main-articles.module.scss";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
-import {
-  selectTopArticles,
-  selectTopArticlesLoading,
-} from "../model/selectors";
+
+import { useGetTopArticlesQuery } from "@/entities/article";
 import { MainArticle } from "@/entities/main-article";
+
+import classes from "./main-articles.module.scss";
 
 interface MainArticlesProps {}
 
 export const MainArticles: FC<MainArticlesProps> = () => {
-  const articles = useAppSelector(selectTopArticles);
-  const articlesLoading = useAppSelector(selectTopArticlesLoading);
+  const { data: articles, error } = useGetTopArticlesQuery(null);
 
   return (
     <section className={classes.MainArticles}>
       <h2 className={classes.Title}>Asosiy</h2>
-
-      {articlesLoading && <p>Loading...</p>}
+      {error?.error}
       {articles?.map((article) => (
         <MainArticle article={article} />
       ))}
