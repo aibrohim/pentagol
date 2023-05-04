@@ -1,9 +1,12 @@
 import { FC } from "react";
-import classes from "./article-card.module.scss";
-import { classNames } from "@/shared/lib/classNames";
+import Link from "next/link";
+
 import { ArticleSchema } from "@/entities/article/model/types";
 import { normalizeDate } from "@/shared/lib/normalize-date";
-import { Link } from "react-router-dom";
+
+import { classNames } from "@/shared/lib/classNames";
+
+import classes from "./article-card.module.scss";
 
 interface ArticleCardProps {
   className?: string;
@@ -13,7 +16,7 @@ interface ArticleCardProps {
 export const ArticleCard: FC<ArticleCardProps> = ({ article, className }) => {
   return (
     <article className={classNames(classes.ArticleCard, {}, [className])}>
-      <Link className={classes.Link} to={`/article/${article.id}`}>
+      <Link className={classes.Link} href={`/article/${article.id}`}>
         <img
           className={classes.Img}
           src={

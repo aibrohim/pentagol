@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { useGetTopArticlesQuery } from "@/entities/article";
+
 import { TopArticle } from "@/entities/top-article";
 
 import { classNames } from "@/shared/lib/classNames";

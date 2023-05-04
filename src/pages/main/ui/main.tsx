@@ -3,7 +3,7 @@ import { FC } from "react";
 import { ClubsScores } from "@/widgets/clubs-scores";
 import { CurrentWeekMatches } from "@/widgets/current-week-matches";
 import { LastWeekMatches } from "@/widgets/last-week-matches";
-import { LatestNews } from "@/widgets/latest-news";
+import { LatestNews } from "@/widgets/latest-articles";
 import { TopArticles } from "@/widgets/top-articles";
 
 import { Container } from "@/shared/ui/container";

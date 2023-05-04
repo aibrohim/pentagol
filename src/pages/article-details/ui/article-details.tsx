@@ -10,8 +10,8 @@ import { useParams } from "react-router";
 import { selectArticleDetailsLoading } from "../model/selectors";
 import { getArticleDetails } from "../model/services";
 import { ArticleInfo } from "@/widgets/article-info";
-import { LatestNews } from "@/widgets/latest-news";
-import { getLatestNews } from "@/widgets/latest-news/model/services";
+import { LatestNews } from "@/widgets/latest-articles";
+import { getLatestNews } from "@/widgets/latest-articles/model/services";
 
 import classes from "./article-details.module.scss";
 import { MainArticles } from "@/widgets/main-articles";
