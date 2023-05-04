@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { wrapper } from "@/app/providers/store";
 
+import Loading from "./loading";
 import { ArticleInfo, articleDetailsApi } from "@/widgets/article-info";
 import { latestArticlesApi } from "@/widgets/latest-articles/";
 import { MainArticles } from "@/widgets/main-articles";
@@ -7,14 +9,17 @@ import { LatestNews } from "@/widgets/latest-articles";
 
 import { Container } from "@/shared/ui/container";
 
-import classes from "./article-details.module.scss";
 import { articlesApi } from "@/entities/article";
+
+import classes from "./article-details.module.scss";
 
 const ArticleDetails = () => {
   return (
     <Container>
       <div className={classes.TopContent}>
-        <ArticleInfo className={classes.Info} />
+        <Suspense fallback={<Loading />}>
+          <ArticleInfo className={classes.Info} />
+        </Suspense>
         <MainArticles />
       </div>
 

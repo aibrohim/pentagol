@@ -15,7 +15,7 @@ export const MainArticles: FC<MainArticlesProps> = () => {
       <h2 className={classes.Title}>Asosiy</h2>
       {error?.error}
       {articles?.map((article) => (
-        <MainArticle article={article} />
+        <MainArticle key={article.id} article={article} />
       ))}
     </section>
   );

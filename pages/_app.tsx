@@ -1,6 +1,8 @@
 import { AppProps } from "next/app";
 import localFont from "next/font/local";
 
+import NextProgress from "next-progress";
+
 import { App } from "@/app/app";
 import { wrapper } from "@/app/providers/store";
 import { ThemeProvider } from "@/app/providers/theme";
@@ -54,6 +56,7 @@ interface CustomPageProps {}
 function MyApp({ Component, pageProps }: AppProps<CustomPageProps>) {
   return (
     <ThemeProvider>
+      <NextProgress height={3} delay={300} color="var(--green-3)" />
       <App fonts={[Manrope, Roboto]}>
         <Component {...pageProps} />
       </App>
