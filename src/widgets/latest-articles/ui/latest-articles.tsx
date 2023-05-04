@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { LoadmoreBtn } from "@/features/loadmore-btn";
-import { NewsHeader } from "@/features/news-header";
+import { ArticlesHeader } from "@/features/articles-header";
 import { LatestArticlesList } from "@/features/latest-articles-list";
 
 import { useGetLatestArticlesQuery } from "../model/services";
@@ -22,7 +22,7 @@ export const LatestNews: FC<LatestNewsProps> = ({ withPagination = true }) => {
 
   return (
     <section className={classes.LatestNews}>
-      <NewsHeader>So'nggi yangiliklar</NewsHeader>
+      <ArticlesHeader>So'nggi yangiliklar</ArticlesHeader>
       <LatestArticlesList page={page} />
       {withPagination && <LoadmoreBtn onClick={handleLoadMoreClick} />}
     </section>

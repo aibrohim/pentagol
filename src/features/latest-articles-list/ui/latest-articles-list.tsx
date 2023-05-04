@@ -8,12 +8,12 @@ interface LatestArticlesListProps {
 }
 
 export const LatestArticlesList: FC<LatestArticlesListProps> = ({ page }) => {
-  const { data: latestNews } = useGetLatestArticlesQuery(page);
+  const { data: latestArticles } = useGetLatestArticlesQuery(page);
 
-  if (!latestNews?.length) return <p>Yangiliklar topilmadi (</p>;
+  if (!latestArticles?.length) return <p>Yangiliklar topilmadi (</p>;
   return (
     <div className={classes.LatestArticlesList}>
-      {latestNews.map((article) => (
+      {latestArticles.map((article) => (
         <ArticleCard article={article} />
       ))}
     </div>
