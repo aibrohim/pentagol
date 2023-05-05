@@ -1,29 +1,59 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactElement } from "react";
 
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import localFont from "next/font/local";
 
-import { Header } from "@/widgets/header";
-
-import { useTheme } from "@/shared/config/theme";
 import { classNames } from "@/shared/lib/classNames";
 
+const Manrope = localFont({
+  src: [
+    {
+      path: "../../fonts/Manrope-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/Manrope-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/Manrope-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-manrope",
+});
+
+const Roboto = localFont({
+  src: [
+    {
+      path: "../../fonts/Roboto-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/Roboto-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/Roboto-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-roboto",
+});
+
 interface AppProps {
-  fonts: NextFontWithVariable[];
-  children: ReactNode;
+  children: ReactElement;
 }
 
-export const App: FC<AppProps> = ({ fonts, children }) => {
-  const { theme } = useTheme();
-
+export const App: FC<AppProps> = ({ children }) => {
   return (
-    <div
-      className={classNames("App", {}, [
-        theme,
-        ...fonts.map((font) => font.variable),
-      ])}
-    >
-      <Header />
-      <div className="Page">{children}</div>
+    <div className={classNames("App", {}, [Manrope.variable, Roboto.variable])}>
+      {children}
     </div>
   );
 };

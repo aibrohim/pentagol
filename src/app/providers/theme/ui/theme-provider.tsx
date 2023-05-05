@@ -1,21 +1,16 @@
 import { FC, useMemo, useState } from "react";
 
 import { Theme, ThemeContext } from "@/shared/config/theme";
+import { cookies } from "next/headers";
 
 interface ThemeProviderProps {
   children?: React.ReactNode;
   externalDefaultTheme?: Theme;
 }
 
-const defaultTheme: Theme = Theme.LIGHT;
-
-export const ThemeProvider: FC<ThemeProviderProps> = ({
-  externalDefaultTheme,
-  children,
-}) => {
-  const [theme, setTheme] = useState<Theme>(
-    externalDefaultTheme || defaultTheme
-  );
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+  // const themejon = cookies().get("theme")?.value as Theme;
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
 
   const value = useMemo(
     () => ({

@@ -1,64 +1,37 @@
+import { ReactElement, ReactNode } from "react";
+
+import { NextPage } from "next";
 import { AppProps } from "next/app";
-import localFont from "next/font/local";
 
 import NextProgress from "next-progress";
 
-import { App } from "@/app/app";
 import { wrapper } from "@/app/providers/store";
 import { ThemeProvider } from "@/app/providers/theme";
+import { Theme } from "@/shared/config/theme";
 
 import "../styles/main.scss";
+import { Layout } from "@/app/layout";
+import { App } from "@/app/app";
 
-const Manrope = localFont({
-  src: [
-    {
-      path: "./fonts/Manrope-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Manrope-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Manrope-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-manrope",
-});
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
-const Roboto = localFont({
-  src: [
-    {
-      path: "./fonts/Roboto-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Roboto-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Roboto-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-roboto",
-});
+interface AppPropsWithLayout extends AppProps {
+  theme?: Theme;
+  Component: NextPageWithLayout;
+}
 
-interface CustomPageProps {}
-
-function MyApp({ Component, pageProps }: AppProps<CustomPageProps>) {
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider>
       <NextProgress height={3} delay={300} color="var(--green-3)" />
-      <App fonts={[Manrope, Roboto]}>
-        <Component {...pageProps} />
+      <App>
+        {Component.getLayout ? (
+          <Component {...pageProps} />
+        ) : (
+          <Layout>{<Component {...pageProps} />}</Layout>
+        )}
       </App>
     </ThemeProvider>
   );

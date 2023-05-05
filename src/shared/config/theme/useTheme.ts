@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "./theme-context";
+import cookies from "js-cookie";
 
 interface UseThemeResult {
   theme: Theme;
@@ -12,7 +13,7 @@ export const useTheme = (): UseThemeResult => {
   const toggleTheme = () => {
     const newTheme: Theme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
 
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    cookies.set(LOCAL_STORAGE_THEME_KEY, newTheme, { path: "/" });
 
     setTheme(newTheme);
   };
