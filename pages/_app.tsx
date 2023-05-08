@@ -5,13 +5,17 @@ import { AppProps } from "next/app";
 
 import NextProgress from "next-progress";
 
+import { SessionProvider } from "next-auth/react";
+
+import { Layout } from "@/app/layout";
+import { App } from "@/app/app";
 import { wrapper } from "@/app/providers/store";
 import { ThemeProvider } from "@/app/providers/theme";
+
 import { Theme } from "@/shared/config/theme";
 
 import "../styles/main.scss";
-import { Layout } from "@/app/layout";
-import { App } from "@/app/app";
+import { Provider } from "react-redux";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -22,19 +26,24 @@ interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
 }
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+function MyApp({ Component, ...rest }: AppPropsWithLayout) {
+  const { store, props } = wrapper.useWrappedStore(rest);
   return (
-    <ThemeProvider>
-      <NextProgress height={3} delay={300} color="var(--green-3)" />
-      <App>
-        {Component.getLayout ? (
-          <Component {...pageProps} />
-        ) : (
-          <Layout>{<Component {...pageProps} />}</Layout>
-        )}
-      </App>
-    </ThemeProvider>
+    <SessionProvider session={props.pageProps.session}>
+      <Provider store={store}>
+        <ThemeProvider>
+          <NextProgress height={3} delay={300} color="var(--green-3)" />
+          <App>
+            {Component.getLayout ? (
+              <Component {...props.pageProps} />
+            ) : (
+              <Layout>{<Component {...props.pageProps} />}</Layout>
+            )}
+          </App>
+        </ThemeProvider>
+      </Provider>
+    </SessionProvider>
   );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;

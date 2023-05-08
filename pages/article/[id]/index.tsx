@@ -28,21 +28,28 @@ const ArticleDetails = () => {
   );
 };
 
-export const getStaticProps = wrapper.getStaticProps((store) => async () => {
-  store.dispatch(articleDetailsApi.endpoints.getArticleInfo.initiate(null));
-  store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1));
-  store.dispatch(articlesApi.endpoints.getTopArticles.initiate(null));
+export const getStaticProps = wrapper.getStaticProps(
+  (store) =>
+    async ({ params }) => {
+      store.dispatch(
+        articleDetailsApi.endpoints.getArticleInfo.initiate(
+          params?.id ? +params.id : null
+        )
+      );
+      store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1));
+      store.dispatch(articlesApi.endpoints.getTopArticles.initiate(null));
 
-  await Promise.all([
-    ...store.dispatch(articleDetailsApi.util.getRunningQueriesThunk()),
-    ...store.dispatch(articlesApi.util.getRunningQueriesThunk()),
-    ...store.dispatch(latestArticlesApi.util.getRunningQueriesThunk()),
-  ]);
+      await Promise.all([
+        ...store.dispatch(articleDetailsApi.util.getRunningQueriesThunk()),
+        ...store.dispatch(articlesApi.util.getRunningQueriesThunk()),
+        ...store.dispatch(latestArticlesApi.util.getRunningQueriesThunk()),
+      ]);
 
-  return {
-    props: {},
-  };
-});
+      return {
+        props: {},
+      };
+    }
+);
 
 export async function getStaticPaths() {
   return { paths: [], fallback: "blocking" };

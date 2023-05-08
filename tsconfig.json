@@ -19,12 +19,18 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "src",
-    "pages"
-, "store"  ],
+    "pages",
+    ".next/types/**/*.ts"
+  ],
   "extends": "./tsconfig.paths.json",
   "exclude": [
     "node_modules"

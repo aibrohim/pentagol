@@ -12,7 +12,7 @@ import classes from "./main.module.scss";
 
 const Main: FC = () => {
   return (
-    <Container>
+    <Container className={classes.Main}>
       <CurrentWeekMatches />
       <LastWeekMatches />
 

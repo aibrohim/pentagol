@@ -19,6 +19,8 @@ export const getStaticProps = wrapper.getStaticProps((store) => async () => {
     ...store.dispatch(latestArticlesApi.util.getRunningQueriesThunk()),
   ]);
 
+  leaguesApi.endpoints.getLeagues.select(null);
+
   return {
     props: {},
   };

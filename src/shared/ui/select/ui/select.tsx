@@ -15,7 +15,7 @@ export const Select: FC<SelectProps> = ({ options, className, ...props }) => {
   return (
     <select className={classNames(classes.Select, {}, [className])} {...props}>
       {options.map(({ value, label, ...props }) => (
-        <option value={value} {...props}>
+        <option key={value || label} value={value} {...props}>
           {label}
         </option>
       ))}

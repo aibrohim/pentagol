@@ -1,4 +1,16 @@
 {
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$9.k.wS8OOjiATfTROlUwbOtd8pVZusU62cNegesDiNIyWl6h6hheu",
+      "id": 1
+    },
+    {
+      "email": "ibrohim@mail.com",
+      "password": "$2a$10$yNSuZXAsydp2Z5ZBboZ8nuUd52LV7OexFXJ4VTu/iAv31RpxrD2uy",
+      "id": 2
+    }
+  ],
   "leagues": [
     {
       "id": 1,
