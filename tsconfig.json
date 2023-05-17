@@ -20,7 +20,6 @@
     "noEmit": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "src",
     "plugins": [
       {
         "name": "next"
@@ -29,7 +28,8 @@
   },
   "include": [
     "src",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts", 
+    "index.d.ts"  
   ],
   "extends": "./tsconfig.paths.json",
   "exclude": [

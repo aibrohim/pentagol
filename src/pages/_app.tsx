@@ -16,7 +16,7 @@ import { ThemeProvider } from "@/global/providers/theme";
 
 import { Theme } from "@/shared/config/theme";
 
-import "../../styles/main.scss";
+import "@/global/assets/styles/main.scss";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
