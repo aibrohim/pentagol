@@ -15,9 +15,7 @@ export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: articleDetails, error } = useGetArticleInfoQuery(
-    id ? +id : null
-  );
+  const { data: articleDetails } = useGetArticleInfoQuery(id ? +id : null);
 
   return (
     <section className={classNames(classes.ArticleInfo, {}, [className])}>

@@ -1,4 +1,4 @@
-import { baseApi } from "@/app/providers/store";
+import { baseApi } from "@/global/providers/store";
 import { ArticleSchema } from "../types";
 
 export const articlesApi = baseApi.injectEndpoints({

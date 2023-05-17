@@ -1,8 +1,8 @@
 import { GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth";
 import { getProviders, signIn } from "next-auth/react";
-import { nextAuthOptions } from "pages/api/auth/[...nextauth]";
-import { NextPageWithLayout } from "pages/_app";
+import { nextAuthOptions } from "@/pages/api/auth/[...nextauth]";
+import { NextPageWithLayout } from "@/pages/_app";
 import { FormEvent, ReactElement, useRef } from "react";
 
 const Login: NextPageWithLayout = () => {

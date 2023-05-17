@@ -1,4 +1,4 @@
-import { baseApi, wrapper } from "@/app/providers/store";
+import { baseApi, wrapper } from "@/global/providers/store";
 
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 

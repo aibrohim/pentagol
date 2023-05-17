@@ -28,7 +28,6 @@
   },
   "include": [
     "src",
-    "pages",
     ".next/types/**/*.ts"
   ],
   "extends": "./tsconfig.paths.json",

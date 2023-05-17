@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { NextPageWithLayout } from "pages/_app";
+import { NextPageWithLayout } from "@/pages/_app";
 
 import { SignUpForm } from "@/widgets/sign-up-form";
 

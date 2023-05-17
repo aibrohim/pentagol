@@ -1,4 +1,4 @@
-import { AppThunk } from "@/app/providers/store";
+import { AppThunk } from "@/global/providers/store";
 import { selectCount } from "../selectors/selectCount";
 import { incrementByAmount } from "../slice";
 

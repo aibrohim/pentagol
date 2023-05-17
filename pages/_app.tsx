@@ -7,10 +7,10 @@ import NextProgress from "next-progress";
 
 import { SessionProvider } from "next-auth/react";
 
-import { Layout } from "@/app/layout";
-import { App } from "@/app/app";
-import { wrapper } from "@/app/providers/store";
-import { ThemeProvider } from "@/app/providers/theme";
+import { Layout } from "@/global/layout";
+import { App } from "@/global/app";
+import { wrapper } from "@/global/providers/store";
+import { ThemeProvider } from "@/global/providers/theme";
 
 import { Theme } from "@/shared/config/theme";
 
