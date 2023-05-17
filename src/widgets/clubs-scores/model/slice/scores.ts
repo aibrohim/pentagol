@@ -27,6 +27,4 @@ export const scoresSlice = createSlice({
   },
 });
 
-export const {} = scoresSlice.actions;
-
-export const { reducer: scoresReducer } = scoresSlice;
+export const { reducer: scoresReducer, actions: scoresActions } = scoresSlice;

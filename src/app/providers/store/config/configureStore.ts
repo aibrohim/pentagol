@@ -14,7 +14,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     leagues: leaguesReducer,
-    matches: matchesReducer,
+    // matches: matchesReducer,
     scores: scoresReducer,
     articles: articlesReducer,
     [baseApi.reducerPath]: baseApi.reducer,

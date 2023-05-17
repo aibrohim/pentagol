@@ -21,17 +21,14 @@ export const CurrentWeekMatches: FC<CurrentWeekMatchesProps> = () => {
   return (
     <section className={classes.CurrentWeekMatches}>
       <Leagues onLeagueSelected={(id) => dispatch(getCurrentWeekMatches(id))} />
-      {matchesLoading ? (
-        <p>Loading...</p>
-      ) : matches ? (
-        matches.length ? (
+      {matchesLoading && <p>Loading...</p>}
+      {matches &&
+        (matches.length ? (
           <MatchesResults results={matches} />
         ) : (
           <p>O'yinlar yo'q</p>
-        )
-      ) : (
-        <p>Ligani tanlang</p>
-      )}
+        ))}
+      {!matches && <p>Ligani tanlang</p>}
     </section>
   );
 };
