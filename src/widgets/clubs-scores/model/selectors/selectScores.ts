@@ -1,3 +1,3 @@
-import { RootState } from "@/app/providers/store";
+import { RootState } from "@/global/providers/store";
 
 export const selectScores = (state: RootState) => state.scores.clubs;

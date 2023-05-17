@@ -1,4 +1,4 @@
-import { baseApi } from "@/app/providers/store/config/configureApi";
+import { baseApi } from "@/global/providers/store/config/configureApi";
 import { LeagueSchema } from "@/entities/league";
 
 export const leaguesApi = baseApi.injectEndpoints({
