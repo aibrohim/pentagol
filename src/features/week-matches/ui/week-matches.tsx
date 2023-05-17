@@ -1,9 +1,13 @@
+import { FC, useEffect, useState } from "react";
+
 import { Leagues, useGetLeaguesQuery } from "@/features/leagues";
 import { MatchesResults } from "@/features/matches-results";
+
 import { Spinner } from "@/shared/ui/spinner";
-import { FC, useEffect, useState } from "react";
-import { WeekType } from "../model/enum/week-type";
-import { useLazyGetWeekMatchesQuery } from "../model/hooks/useLazyGetWeekMatchesQuery";
+
+import { useLazyGetWeekMatchesQuery } from "../hooks/useLazyGetWeekMatchesQuery";
+import { WeekType } from "../enum/week-type";
+
 import classes from "./week-matches.module.scss";
 
 interface WeekMatchesProps {
@@ -40,6 +44,7 @@ export const WeekMatches: FC<WeekMatchesProps> = ({ weekType }) => {
         onLeagueSelected={handleLeagueSelect}
       />
       {isLoading && <Spinner />}
+      {!selectedLeague && <p>Iltimos, ligani tanlang!</p>}
       {matches && <MatchesResults results={matches} />}
     </section>
   );

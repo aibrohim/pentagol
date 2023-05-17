@@ -1,4 +1,4 @@
-import { WeekType } from "../enum";
+import { WeekType } from "../../enum";
 
 export interface GetWeekMatchRequestSchema {
   week: WeekType;
