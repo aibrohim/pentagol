@@ -1,11 +1,34 @@
 import { wrapper } from "@/app/providers/store";
-import { articlesApi } from "@/entities/article";
+
+import { CurrentWeekMatches } from "@/widgets/current-week-matches";
+import { LastWeekMatches } from "@/widgets/last-week-matches";
+import { TopArticles } from "@/widgets/top-articles";
+import { ClubsScores } from "@/widgets/clubs-scores";
+import { LatestNews } from "@/widgets/latest-articles";
+
+import { latestArticlesApi } from "@/widgets/latest-articles";
+
 import { leaguesApi } from "@/features/leagues";
-import { Main } from "@/pages/main";
-import { latestArticlesApi } from "@/widgets/latest-articles/model/services";
+
+import { articlesApi } from "@/entities/article";
+
+import { Container } from "@/shared/ui/container";
+
+import classes from "./index.module.scss";
 
 export default function App() {
-  return <Main />;
+  return (
+    <Container className={classes.Index}>
+      <CurrentWeekMatches />
+      <LastWeekMatches />
+
+      <div className={classes.TopArticlesScoresWrapper}>
+        <TopArticles className={classes.TopArticles} />
+        <ClubsScores />
+      </div>
+      <LatestNews />
+    </Container>
+  );
 }
 
 export const getStaticProps = wrapper.getStaticProps((store) => async () => {
