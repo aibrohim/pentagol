@@ -1,1 +1,1 @@
-export * from "./main.async";
+export * from "./main";

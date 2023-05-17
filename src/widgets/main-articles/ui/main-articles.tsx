@@ -8,12 +8,12 @@ import classes from "./main-articles.module.scss";
 interface MainArticlesProps {}
 
 export const MainArticles: FC<MainArticlesProps> = () => {
-  const { data: articles, error } = useGetTopArticlesQuery(null);
+  const { data: articles } = useGetTopArticlesQuery(null);
 
   return (
     <section className={classes.MainArticles}>
       <h2 className={classes.Title}>Asosiy</h2>
-      {error?.error}
+      {/* {error?.error} */}
       {articles?.map((article) => (
         <MainArticle key={article.id} article={article} />
       ))}

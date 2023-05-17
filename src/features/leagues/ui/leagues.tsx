@@ -47,7 +47,7 @@ export const Leagues: FC<LeaguesProps> = ({
 
   return (
     <div className={classNames(classes.Leagues, {}, [className])}>
-      <span>{error?.error}</span>
+      {/* <span>{error?.error}</span> */}
       {leagues?.map((league) => (
         <League
           key={league.id}

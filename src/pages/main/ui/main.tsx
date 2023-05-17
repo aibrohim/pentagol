@@ -10,7 +10,7 @@ import { Container } from "@/shared/ui/container";
 
 import classes from "./main.module.scss";
 
-const Main: FC = () => {
+export const Main: FC = () => {
   return (
     <Container className={classes.Main}>
       <CurrentWeekMatches />

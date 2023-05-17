@@ -21,8 +21,8 @@ export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
 
   return (
     <section className={classNames(classes.ArticleInfo, {}, [className])}>
-      {error?.status === 404 && <h1>Not Found</h1>}
-      {error?.error && <h1>{error.error}</h1>}
+      {/* {error?.status === 404 && <h1>Not Found</h1>}
+      {error?.error && <h1>{error.error}</h1>} */}
 
       {articleDetails && (
         <>

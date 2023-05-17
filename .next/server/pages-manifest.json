@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/auth/sign-up": "pages/auth/sign-up.js"
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/article/[id]": "pages/article/[id].js"
 }

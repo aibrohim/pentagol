@@ -1,15 +1,15 @@
-import { Suspense } from "react";
-import { wrapper } from "@/app/providers/store";
+import { baseApi, wrapper } from "@/app/providers/store";
 
-import Loading from "./loading";
-import { ArticleInfo, articleDetailsApi } from "@/widgets/article-info";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
+
+import { articleDetailsApi, ArticleInfo } from "@/widgets/article-info";
+import { LatestNews } from "@/widgets/latest-articles";
 import { latestArticlesApi } from "@/widgets/latest-articles/";
 import { MainArticles } from "@/widgets/main-articles";
-import { LatestNews } from "@/widgets/latest-articles";
-
-import { Container } from "@/shared/ui/container";
 
 import { articlesApi } from "@/entities/article";
+
+import { Container } from "@/shared/ui/container";
 
 import classes from "./article-details.module.scss";
 
@@ -17,9 +17,7 @@ const ArticleDetails = () => {
   return (
     <Container>
       <div className={classes.TopContent}>
-        <Suspense fallback={<Loading />}>
-          <ArticleInfo className={classes.Info} />
-        </Suspense>
+        <ArticleInfo className={classes.Info} />
         <MainArticles />
       </div>
 
@@ -31,22 +29,34 @@ const ArticleDetails = () => {
 export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params }) => {
-      store.dispatch(
-        articleDetailsApi.endpoints.getArticleInfo.initiate(
-          params?.id ? +params.id : null
-        )
-      );
+      if (params?.id) {
+        store.dispatch(
+          articleDetailsApi.endpoints.getArticleInfo.initiate(
+            params?.id ? +params.id : null
+          )
+        );
+      }
       store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1));
       store.dispatch(articlesApi.endpoints.getTopArticles.initiate(null));
 
-      await Promise.all([
-        ...store.dispatch(articleDetailsApi.util.getRunningQueriesThunk()),
-        ...store.dispatch(articlesApi.util.getRunningQueriesThunk()),
-        ...store.dispatch(latestArticlesApi.util.getRunningQueriesThunk()),
+      const data = await Promise.all([
+        ...store.dispatch(baseApi.util.getRunningQueriesThunk()),
       ]);
+
+      const isArticleDetailsNotFound = data.some((data) => {
+        if (data.error) {
+          return (
+            data.endpointName === "getArticleInfo" &&
+            (data.error as FetchBaseQueryError).status === 404
+          );
+        }
+        return false;
+      });
 
       return {
         props: {},
+        notFound: isArticleDetailsNotFound,
+        revalidate: true,
       };
     }
 );
