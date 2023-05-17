@@ -1,5 +1,7 @@
 import { ReactElement, ReactNode } from "react";
 
+import { Provider } from "react-redux";
+
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 
@@ -14,8 +16,7 @@ import { ThemeProvider } from "@/global/providers/theme";
 
 import { Theme } from "@/shared/config/theme";
 
-import "../styles/main.scss";
-import { Provider } from "react-redux";
+import "../../styles/main.scss";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

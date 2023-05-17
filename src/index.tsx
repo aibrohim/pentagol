@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 
 import reportWebVitals from "./reportWebVitals";
 
-import { App } from "./global/app";
-
 import { StoreProvider } from "@/global/providers/store";
 import { ThemeProvider } from "@/global/providers/theme";
 import { BrowserRouter } from "react-router-dom";
@@ -16,7 +14,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <StoreProvider>
-        <ThemeProvider>{/* <App /> */}</ThemeProvider>
+        <ThemeProvider></ThemeProvider>
       </StoreProvider>
     </BrowserRouter>
   </React.StrictMode>

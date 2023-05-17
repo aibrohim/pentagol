@@ -1,7 +1,6 @@
 import { FC, useMemo, useState } from "react";
 
 import { Theme, ThemeContext } from "@/shared/config/theme";
-import { cookies } from "next/headers";
 
 interface ThemeProviderProps {
   children?: React.ReactNode;
