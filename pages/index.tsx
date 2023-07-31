@@ -4,6 +4,7 @@ import { Main } from "@/pages-flat/main";
 
 import { latestArticlesApi } from "@/widgets/latest-articles";
 import { topArticlesApi } from "@/widgets/top-articles";
+import { scoresByLeagueApi } from "@/widgets/clubs-scores";
 
 import { leaguesApi } from "@/features/leagues";
 
@@ -12,17 +13,17 @@ export default function App() {
 }
 
 export const getStaticProps = wrapper.getStaticProps((store) => async () => {
-  store.dispatch(leaguesApi.endpoints.getLeagues.initiate());
-  store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate());
-  store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1));
-
-  await Promise.all([
-    ...store.dispatch(leaguesApi.util.getRunningQueriesThunk()),
-    ...store.dispatch(topArticlesApi.util.getRunningQueriesThunk()),
-    ...store.dispatch(latestArticlesApi.util.getRunningQueriesThunk()),
+  const [{ data: leagues }] = await Promise.all([
+    store.dispatch(leaguesApi.endpoints.getLeagues.initiate()),
+    store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate()),
+    store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1)),
   ]);
 
-  leaguesApi.endpoints.getLeagues.select();
+  if (leagues?.[0]) {
+    await store.dispatch(
+      scoresByLeagueApi.endpoints.getScoresByLeague.initiate(leagues[0].id)
+    );
+  }
 
   return {
     props: {},

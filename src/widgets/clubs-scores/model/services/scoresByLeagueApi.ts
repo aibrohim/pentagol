@@ -2,7 +2,7 @@ import { baseApi } from "@/global/providers/store";
 
 import { ClubScore } from "../types/scores-schema";
 
-export const leaguesApi = baseApi.injectEndpoints({
+export const scoresByLeagueApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getScoresByLeague: builder.query<ClubScore[], number>({
       query: (leagueId) => ({
@@ -15,4 +15,4 @@ export const leaguesApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useLazyGetScoresByLeagueQuery } = leaguesApi;
+export const { useLazyGetScoresByLeagueQuery } = scoresByLeagueApi;

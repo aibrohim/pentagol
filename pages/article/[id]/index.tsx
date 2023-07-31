@@ -1,4 +1,4 @@
-import { baseApi, wrapper } from "@/global/providers/store";
+import { wrapper } from "@/global/providers/store";
 
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 
@@ -16,34 +16,31 @@ export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params }) => {
       if (params?.id) {
-        store.dispatch(
-          articleDetailsApi.endpoints.getArticleInfo.initiate(
-            params?.id ? +params.id : null,
-            { forceRefetch: true }
-          )
+        const { isError, ...props } = await store.dispatch(
+          articleDetailsApi.endpoints.getArticleInfo.initiate(+params.id, {
+            forceRefetch: true,
+          })
         );
-      }
-      store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1));
-      store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate());
 
-      const data = await Promise.all([
-        ...store.dispatch(baseApi.util.getRunningQueriesThunk()),
+        if (isError) {
+          const error = props.error as FetchBaseQueryError;
+
+          return error.status === 404
+            ? { notFound: true, props: {}, revalidate: 360 }
+            : Promise.reject(error);
+        }
+      }
+
+      await Promise.all([
+        store.dispatch(
+          latestArticlesApi.endpoints.getLatestArticles.initiate(1)
+        ),
+        store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate()),
       ]);
 
-      const isArticleDetailsNotFound = data.some((data) => {
-        if (data.error) {
-          return (
-            data.endpointName === "getArticleInfo" &&
-            (data.error as FetchBaseQueryError).status === 404
-          );
-        }
-        return false;
-      });
-
       return {
-        props: { data },
-        revalidate: 60,
-        notFound: isArticleDetailsNotFound,
+        props: {},
+        revalidate: 360,
       };
     }
 );
