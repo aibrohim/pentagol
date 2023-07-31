@@ -1,15 +1,18 @@
+import { ChangeEvent, FC, HTMLAttributes } from "react";
+
 import { ClubsRatingTable } from "@/features/clubs-rating-table";
+import { useGetLeaguesQuery } from "@/features/leagues";
+
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Select } from "@/shared/ui/select";
-import { ChangeEvent, FC, HTMLAttributes } from "react";
-import classes from "./clubs-scores.module.scss";
 
-import { useGetLeaguesQuery } from "@/features/leagues";
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
 import { selectScores, selectScoresLoading } from "../model/selectors";
 import { getScoresByLeague } from "../model/services/getScoresByLeague";
 
-interface ClubsScoresProps extends HTMLAttributes<HTMLElement> {}
+import classes from "./clubs-scores.module.scss";
+
+type ClubsScoresProps = HTMLAttributes<HTMLElement>;
 
 export const ClubsScores: FC = ({ ...props }: ClubsScoresProps) => {
   const dispatch = useAppDispatch();
@@ -24,6 +27,7 @@ export const ClubsScores: FC = ({ ...props }: ClubsScoresProps) => {
   };
 
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <section className={classes.ClubsScores} {...props}>
       <h2 className={classes.Title}>Jadval</h2>
       <Select

@@ -13,7 +13,7 @@ export const LoadmoreBtn: FC<LoadmoreBtnProps> = ({ onClick }) => {
       onClick={onClick}
       theme={BtnTheme.SECONDARY}
     >
-      Ko'proq ko'rish
+      Ko&apos;proq ko&apos;rish
     </Button>
   );
 };

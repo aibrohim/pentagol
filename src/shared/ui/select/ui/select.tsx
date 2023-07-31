@@ -13,8 +13,10 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 export const Select: FC<SelectProps> = ({ options, className, ...props }) => {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <select className={classNames(classes.Select, {}, [className])} {...props}>
       {options.map(({ value, label, ...props }) => (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <option key={value || label} value={value} {...props}>
           {label}
         </option>

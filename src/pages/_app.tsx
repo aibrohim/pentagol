@@ -18,6 +18,7 @@ import { Theme } from "@/shared/config/theme";
 
 import "@/global/assets/styles/main.scss";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
@@ -36,8 +37,10 @@ function MyApp({ Component, ...rest }: AppPropsWithLayout) {
           <NextProgress height={3} delay={300} color="var(--green-3)" />
           <App>
             {Component.getLayout ? (
+              // eslint-disable-next-line react/jsx-props-no-spreading
               <Component {...props.pageProps} />
             ) : (
+              // eslint-disable-next-line react/jsx-props-no-spreading
               <Layout>{<Component {...props.pageProps} />}</Layout>
             )}
           </App>

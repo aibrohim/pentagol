@@ -35,6 +35,7 @@ export const WeekMatches: FC<WeekMatchesProps> = ({ weekType }) => {
         leagueId: selectedLeague,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLeague, weekType]);
 
   return (

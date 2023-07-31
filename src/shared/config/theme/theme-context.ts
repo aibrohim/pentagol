@@ -15,5 +15,6 @@ export const LOCAL_STORAGE_THEME_KEY: key = "theme";
 
 export const ThemeContext = createContext<ThemeContextProps>({
   theme: Theme.LIGHT,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setTheme: () => {},
 });

@@ -24,7 +24,7 @@ export const LatestNews: FC<LatestNewsProps> = ({ withPagination = true }) => {
 
   return (
     <section className={classes.LatestNews}>
-      <ArticlesHeader>So'nggi yangiliklar</ArticlesHeader>
+      <ArticlesHeader>So&apos;nggi yangiliklar</ArticlesHeader>
       <LatestArticlesList page={page} />
       {withPagination && <LoadmoreBtn onClick={handleLoadMoreClick} />}
     </section>

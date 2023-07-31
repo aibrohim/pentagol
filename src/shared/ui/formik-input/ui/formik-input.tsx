@@ -10,5 +10,6 @@ interface FormikInputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const FormikInput: FC<FormikInputProps> = ({ name, ...props }) => {
   const [field] = useField(name);
 
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <Input className={classes.FormikInput} {...field} {...props} />;
 };

@@ -28,8 +28,8 @@
   },
   "include": [
     "src",
-    ".next/types/**/*.ts", 
-    "index.d.ts"  
+    ".next/types/**/*.ts",
+    "index.d.ts"
   ],
   "extends": "./tsconfig.paths.json",
   "exclude": [

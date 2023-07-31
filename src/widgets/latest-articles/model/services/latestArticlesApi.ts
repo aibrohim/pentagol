@@ -1,10 +1,10 @@
 import { baseApi } from "@/global/providers/store/config/configureApi";
 import { ArticleSchema } from "@/entities/article";
 
-interface ILatestArticlesResult {
-  content: ArticleSchema[];
-  totalPages: number;
-}
+// interface ILatestArticlesResult {
+//   content: ArticleSchema[];
+//   totalPages: number;
+// }
 
 export const latestArticlesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

@@ -15,6 +15,7 @@ export const Input: FC<InputProps> = ({
     <input
       className={classNames(classes.Input, {}, [className])}
       name={name}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
   );

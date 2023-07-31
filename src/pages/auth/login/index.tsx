@@ -20,13 +20,9 @@ const Login: NextPageWithLayout = () => {
     signIn("credentials", {
       ...loginData,
       redirect: false,
-    })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    });
+    // .then(() => {})
+    // .catch(() => {});
   };
 
   return (

@@ -10,7 +10,9 @@ import { SignUpSchema, signUpValidationSchema } from "../model/types";
 
 import classes from "./sign-up-form.module.scss";
 
-interface SignUpFormProps {}
+interface SignUpFormProps {
+  onSubmit?: (values: SignUpSchema) => void;
+}
 
 const initialValues: SignUpSchema = {
   username: "",
@@ -18,9 +20,11 @@ const initialValues: SignUpSchema = {
   password: "",
 };
 
-export const SignUpForm: FC<SignUpFormProps> = () => {
+export const SignUpForm: FC<SignUpFormProps> = ({ onSubmit }) => {
   const handleFormSubmit = (values: SignUpSchema) => {
-    console.log(values);
+    if (onSubmit) {
+      onSubmit(values);
+    }
   };
 
   return (

@@ -2,6 +2,28 @@
   "name": "pentagol",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "start:server": "json-server --watch ./json-server/db.json --routes ./json-server/routes.json --port 8080 -m ./node_modules/json-server-auth",
+    "test": "next test",
+    "eject": "next eject",
+    "lint:ts": "next lint",
+    "lint:ts:fix": "next lint --fix"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@reduxjs/toolkit": "^1.9.5",
@@ -31,34 +53,13 @@
     "web-vitals": "^2.1.4",
     "yup": "^1.1.1"
   },
-  "scripts": {
-    "start": "next dev",
-    "start:server": "json-server --watch ./json-server/db.json --routes ./json-server/routes.json --port 8080 -m ./node_modules/json-server-auth",
-    "build": "next build",
-    "test": "next test",
-    "eject": "next eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
     "@types/js-cookie": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.40.0",
+    "eslint-config-next": "13.4.2",
     "json-server": "^0.17.3",
     "json-server-auth": "^2.1.0",
     "sass": "^1.62.1"

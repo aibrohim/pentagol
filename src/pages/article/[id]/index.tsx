@@ -29,10 +29,18 @@ const ArticleDetails = () => {
 export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params }) => {
+      // eslint-disable-next-line no-console
+
+      // res.setHeader(
+      //   "Cache-Control",
+      //   "public, s-maxage=10, stale-while-revalidate=15"
+      // );
+
       if (params?.id) {
         store.dispatch(
           articleDetailsApi.endpoints.getArticleInfo.initiate(
-            params?.id ? +params.id : null
+            params?.id ? +params.id : null,
+            { forceRefetch: true }
           )
         );
       }
@@ -54,9 +62,9 @@ export const getStaticProps = wrapper.getStaticProps(
       });
 
       return {
-        props: {},
+        props: { data },
+        revalidate: 60,
         notFound: isArticleDetailsNotFound,
-        revalidate: true,
       };
     }
 );

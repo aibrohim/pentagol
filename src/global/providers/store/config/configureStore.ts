@@ -1,16 +1,14 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 
-import { createWrapper } from "next-redux-wrapper";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
+import { createWrapper } from "next-redux-wrapper";
 
-import { counterReducer } from "@/features/counter/model";
 import { leaguesReducer } from "@/features/leagues/model";
 import { scoresReducer } from "@/widgets/clubs-scores/model/slice";
 import { baseApi } from "./configureApi";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     leagues: leaguesReducer,
     scores: scoresReducer,
     [baseApi.reducerPath]: baseApi.reducer,

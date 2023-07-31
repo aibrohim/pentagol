@@ -1,5 +1,5 @@
-import { FC } from "react";
 import { useRouter } from "next/router";
+import { FC } from "react";
 import { useGetArticleInfoQuery } from "../model/services";
 
 import { classNames } from "@/shared/lib/classNames";
@@ -35,6 +35,8 @@ export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
             src={
               "https://www.aljazeera.com/wp-content/uploads/2021/06/2021-06-28T220439Z_2107545029_UP1EH6S1PBPB2_RTRMADP_3_SOCCER-EURO-FRA-SWI-REPORT.jpg"
             }
+            width={500}
+            height={600}
             alt={articleDetails.title}
           />
 

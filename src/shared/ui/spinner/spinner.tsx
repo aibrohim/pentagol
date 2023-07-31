@@ -1,7 +1,5 @@
 import { FC } from "react";
 
-interface SpinnerProps {}
-
-export const Spinner: FC<SpinnerProps> = () => {
+export const Spinner: FC = () => {
   return <p>Loading...</p>;
 };

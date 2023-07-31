@@ -5,9 +5,7 @@ import { MainArticle } from "@/entities/main-article";
 
 import classes from "./main-articles.module.scss";
 
-interface MainArticlesProps {}
-
-export const MainArticles: FC<MainArticlesProps> = () => {
+export const MainArticles: FC = () => {
   const { data: articles } = useGetTopArticlesQuery(null);
 
   return (
