@@ -1,30 +1,29 @@
-import { ChangeEvent, FC, HTMLAttributes } from "react";
+import { ChangeEvent, FC, HTMLAttributes, useEffect } from "react";
 
-import { ClubsRatingTable } from "@/features/clubs-rating-table";
 import { useGetLeaguesQuery } from "@/features/leagues";
 
-import { useAppDispatch } from "@/shared/hooks/useAppDispatch";
-import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Select } from "@/shared/ui/select";
 
-import { selectScores, selectScoresLoading } from "../model/selectors";
-import { getScoresByLeague } from "../model/services/getScoresByLeague";
-
+import { useLazyGetScoresByLeagueQuery } from "../model/services/scoresByLeagueApi";
+import { ClubsRatingTable } from "./clubs-rating-table";
 import classes from "./clubs-scores.module.scss";
 
 type ClubsScoresProps = HTMLAttributes<HTMLElement>;
 
 export const ClubsScores: FC = ({ ...props }: ClubsScoresProps) => {
-  const dispatch = useAppDispatch();
-
-  const { data: leagues } = useGetLeaguesQuery(null);
-  const scores = useAppSelector(selectScores);
-  const scoresLoading = useAppSelector(selectScoresLoading);
+  const { data: leagues } = useGetLeaguesQuery();
+  const [getScoresByLeague, { data: scores, isLoading: scoresLoading }] =
+    useLazyGetScoresByLeagueQuery();
 
   const handleLeagueSelected = (evt: ChangeEvent<HTMLSelectElement>) => {
-    const league = +evt.target.value;
-    dispatch(getScoresByLeague(league));
+    getScoresByLeague(+evt.target.value);
   };
+
+  useEffect(() => {
+    if (leagues && leagues[0]) {
+      getScoresByLeague(leagues[0]?.id);
+    }
+  }, [getScoresByLeague, leagues]);
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading

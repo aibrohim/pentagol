@@ -1,6 +1,6 @@
-import { ClubRatingSchema } from "@/entities/club-rating/model/types";
+import { ClubSchema } from "@/entities/club";
 
-export interface ScoresSchema {
-  clubs: ClubRatingSchema[] | null;
-  loading: boolean;
+export interface ClubScore extends ClubSchema {
+  gamesPlayed: number;
+  point: number;
 }
