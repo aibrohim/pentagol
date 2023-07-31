@@ -1,5 +1,7 @@
 import { baseApi } from "@/global/providers/store/config/configureApi";
 import { ArticleSchema } from "@/entities/article";
+import { articlesLimit } from "../../config/articlesLimit";
+import { LatestArticlesResponseSchema } from "../types/latest-articles-response-schema";
 
 // interface ILatestArticlesResult {
 //   content: ArticleSchema[];
@@ -8,20 +10,27 @@ import { ArticleSchema } from "@/entities/article";
 
 export const latestArticlesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getLatestArticles: builder.query<ArticleSchema[], number>({
+    getLatestArticles: builder.query<LatestArticlesResponseSchema, number>({
       query: (page: number) => ({
         url: "articles",
         params: {
           _page: page,
-          _limit: 4,
+          _limit: articlesLimit,
         },
       }),
+      transformResponse(baseQueryReturnValue: ArticleSchema[], meta) {
+        const count = meta?.response?.headers.get("X-Total-Count");
+        return {
+          count: count ? +count : 0,
+          articles: baseQueryReturnValue,
+        };
+      },
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName;
       },
       merge: (currentCache, newItems, { arg }) => {
         if (arg !== 1) {
-          currentCache.push(...newItems);
+          currentCache.articles.push(...newItems.articles);
         } else {
           currentCache = newItems;
         }
