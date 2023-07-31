@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -26,13 +22,7 @@
       }
     ]
   },
-  "include": [
-    "src",
-    ".next/types/**/*.ts",
-    "index.d.ts"
-  ],
+  "include": ["src", "pages", ".next/types/**/*.ts", "index.d.ts"],
   "extends": "./tsconfig.paths.json",
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

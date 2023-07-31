@@ -1,24 +1,24 @@
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { useGetArticleInfoQuery } from "../model/services";
 
 import { classNames } from "@/shared/lib/classNames";
 import { normalizeDate } from "@/shared/lib/normalize-date";
 
-import classes from "./article-info.module.scss";
+import { useGetArticleDetailsQuery } from "../../model/services";
+import classes from "./article-details.module.scss";
 
-interface ArticleInfoProps {
+interface ArticleDetailsProps {
   className?: string;
 }
 
-export const ArticleInfo: FC<ArticleInfoProps> = ({ className }) => {
+export const ArticleDetails: FC<ArticleDetailsProps> = ({ className }) => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { data: articleDetails } = useGetArticleInfoQuery(id ? +id : null);
+  const { data: articleDetails } = useGetArticleDetailsQuery(id ? +id : null);
 
   return (
-    <section className={classNames(classes.ArticleInfo, {}, [className])}>
+    <section className={classNames(classes.ArticleDetails, {}, [className])}>
       {articleDetails && (
         <>
           <time className={classes.Time}>

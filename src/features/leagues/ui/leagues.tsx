@@ -20,7 +20,7 @@ export const Leagues: FC<LeaguesProps> = ({
   selectedLeague,
   onLeagueSelected,
 }) => {
-  const { data: leagues } = useGetLeaguesQuery(null);
+  const { data: leagues } = useGetLeaguesQuery();
 
   const [activeLeague, setActiveLeague] = useState<number | undefined>();
 
