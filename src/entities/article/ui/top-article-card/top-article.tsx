@@ -2,10 +2,10 @@ import { FC } from "react";
 
 import Link from "next/link";
 
-import { ArticleSchema } from "@/entities/article";
-
 import { classNames } from "@/shared/lib/classNames";
 import { normalizeDate } from "@/shared/lib/normalize-date";
+
+import { ArticleSchema } from "../../types";
 
 import classes from "./top-article.module.scss";
 

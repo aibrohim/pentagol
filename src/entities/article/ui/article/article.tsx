@@ -2,15 +2,15 @@ import { FC } from "react";
 
 import Link from "next/link";
 
-import { ArticleSchema } from "@/entities/article";
+import { ArticleSchema } from "../../types";
 
-import classes from "./main-article.module.scss";
+import classes from "./article.module.scss";
 
 interface MainArticleProps {
   article: ArticleSchema;
 }
 
-export const MainArticle: FC<MainArticleProps> = ({ article }) => {
+export const Article: FC<MainArticleProps> = ({ article }) => {
   return (
     <article className={classes.MainArticle}>
       <Link className={classes.Link} href={`/article/${article.id}`}>

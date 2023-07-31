@@ -10,11 +10,13 @@ import { useGetLatestArticlesQuery } from "../model/services";
 
 import classes from "./latest-articles.module.scss";
 
-interface LatestNewsProps {
+interface LatestArticlesProps {
   withPagination?: boolean;
 }
 
-export const LatestNews: FC<LatestNewsProps> = ({ withPagination = true }) => {
+export const LatestArticles: FC<LatestArticlesProps> = ({
+  withPagination = true,
+}) => {
   const [page, setPage] = useState<number>(1);
   useGetLatestArticlesQuery(page);
 
@@ -23,7 +25,7 @@ export const LatestNews: FC<LatestNewsProps> = ({ withPagination = true }) => {
   };
 
   return (
-    <section className={classes.LatestNews}>
+    <section className={classes.LatestArticles}>
       <ArticlesHeader>So&apos;nggi yangiliklar</ArticlesHeader>
       <LatestArticlesList page={page} />
       {withPagination && <LoadmoreBtn onClick={handleLoadMoreClick} />}

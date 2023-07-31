@@ -2,11 +2,11 @@
 
 import { FC } from "react";
 
-import { useGetTopArticlesQuery } from "@/entities/article";
-
-import { TopArticle } from "@/entities/top-article";
+import { TopArticle } from "@/entities/article";
 
 import { classNames } from "@/shared/lib/classNames";
+
+import { useGetTopArticlesQuery } from "../model/services/topArticlesApi";
 
 import classes from "./top-articles.module.scss";
 
@@ -15,7 +15,7 @@ interface TopArticlesProps {
 }
 
 export const TopArticles: FC<TopArticlesProps> = ({ className }) => {
-  const { data: articles, isLoading } = useGetTopArticlesQuery(null);
+  const { data: articles, isLoading } = useGetTopArticlesQuery();
 
   return (
     <ul className={classNames(classes.TopArticles, {}, [className])}>

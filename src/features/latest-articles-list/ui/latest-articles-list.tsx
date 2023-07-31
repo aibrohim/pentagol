@@ -1,4 +1,4 @@
-import { ArticleCard } from "@/entities/article-card";
+import { ArticleCard } from "@/entities/article";
 import { useGetLatestArticlesQuery } from "@/widgets/latest-articles/model/services";
 import { FC } from "react";
 import classes from "./latest-articles-list.module.scss";

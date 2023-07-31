@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start --port 3001",
+    "start": "next start",
     "start:server": "json-server --watch ./json-server/db.json --routes ./json-server/routes.json --port 8080 -m ./node_modules/json-server-auth",
     "test": "next test",
     "eject": "next eject",

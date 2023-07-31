@@ -3,7 +3,7 @@ import { baseApi, wrapper } from "@/global/providers/store";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/dist/query";
 
 import { articleDetailsApi, ArticleInfo } from "@/widgets/article-info";
-import { LatestNews } from "@/widgets/latest-articles";
+import { LatestArticles } from "@/widgets/latest-articles";
 import { latestArticlesApi } from "@/widgets/latest-articles/";
 import { MainArticles } from "@/widgets/main-articles";
 
@@ -21,7 +21,7 @@ const ArticleDetails = () => {
         <MainArticles />
       </div>
 
-      <LatestNews />
+      <LatestArticles />
     </Container>
   );
 };
