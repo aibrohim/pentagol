@@ -33,7 +33,6 @@ export const ClubsScores: FC = ({ ...props }: ClubsScoresProps) => {
         className={classes.LeagueSelect}
         defaultValue={0}
         options={[
-          { value: 0, label: "Ligani tanlang", disabled: true },
           ...(leagues?.map((league) => ({
             value: league.id,
             label: league.name,

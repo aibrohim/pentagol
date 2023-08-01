@@ -36,9 +36,9 @@
     { "id": 4, "name": "Arsenal", "leagueId": 2 },
     { "id": 5, "name": "Paxtakor", "leagueId": 2 },
     { "id": 6, "name": "Bunyodkor", "leagueId": 2 },
-    { "id": 7, "name": "Manchester United", "leagueId": 2 },
-    { "id": 8, "name": "Manchester City", "leagueId": 2 },
-    { "id": 9, "name": "Liverpool", "leagueId": 2 }
+    { "id": 7, "name": "Manchester United", "leagueId": 3 },
+    { "id": 8, "name": "Manchester City", "leagueId": 3 },
+    { "id": 9, "name": "Liverpool", "leagueId": 4 }
   ],
   "articles": [
     {
