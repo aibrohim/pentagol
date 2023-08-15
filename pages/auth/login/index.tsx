@@ -1,9 +1,10 @@
 import { GetServerSidePropsContext } from "next";
 import { getServerSession } from "next-auth";
 import { getProviders, signIn } from "next-auth/react";
-import { nextAuthOptions } from "@/pages-flat/api/auth/[...nextauth]";
-import { NextPageWithLayout } from "@/pages-flat/_app";
+
 import { FormEvent, ReactElement, useRef } from "react";
+import { nextAuthOptions } from "../../api/auth/[...nextauth]";
+import { NextPageWithLayout } from "../../_app";
 
 const Login: NextPageWithLayout = () => {
   const emailRef = useRef<HTMLInputElement>(null);

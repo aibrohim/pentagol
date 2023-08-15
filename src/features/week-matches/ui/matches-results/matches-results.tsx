@@ -13,7 +13,7 @@ export const MatchesResults: FC<MatchesResultsProps> = ({ results }) => {
     <ul className={classes.MatchesResults}>
       {results.map((result: MatchResultSchema) => (
         <MatchResult
-          key={result.matchId}
+          key={result.id}
           className={classes.MatchResult}
           matchInfo={result}
         />

@@ -1,6 +1,6 @@
 import { WeekType } from "../../enum";
 
-export interface GetWeekMatchRequestSchema {
+export interface WeekMatchRequestSchema {
   week: WeekType;
   leagueId: number;
 }

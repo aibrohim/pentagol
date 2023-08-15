@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "start:server": "json-server --watch ./json-server/db.json --routes ./json-server/routes.json --port 8080 -m ./node_modules/json-server-auth",
+    "start:server": "node ./json-server/index.js -m ./node_modules/json-server-auth",
     "test": "next test",
     "eject": "next eject",
     "lint:ts": "next lint",
@@ -62,6 +62,7 @@
     "eslint-config-next": "13.4.2",
     "json-server": "^0.17.3",
     "json-server-auth": "^2.1.0",
+    "lowdb": "^6.0.1",
     "sass": "^1.62.1"
   }
 }

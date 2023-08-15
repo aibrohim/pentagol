@@ -2,11 +2,10 @@
 
 import { FC, useEffect, useState } from "react";
 
-import { League } from "@/entities/league";
 import { classNames } from "@/shared/lib/classNames";
 
+import { League } from "./League";
 import { useGetLeaguesQuery } from "../model";
-
 import classes from "./leagues.module.scss";
 
 interface LeaguesProps {

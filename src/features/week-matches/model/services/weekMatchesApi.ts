@@ -1,13 +1,10 @@
 import { baseApi } from "@/global/providers/store";
 import { MatchResultSchema } from "@/entities/match-result";
-import { GetWeekMatchRequestSchema } from "../types/get-week-match-request-schema";
+import { WeekMatchRequestSchema } from "../types/get-week-match-request-schema";
 
 export const weekMatchesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getWeekMatches: builder.query<
-      MatchResultSchema[],
-      GetWeekMatchRequestSchema
-    >({
+    getWeekMatches: builder.query<MatchResultSchema[], WeekMatchRequestSchema>({
       query: ({ week, leagueId }) => `matches/${week}/${leagueId}`,
     }),
   }),

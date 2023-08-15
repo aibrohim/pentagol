@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
 
 import { Leagues, useGetLeaguesQuery } from "@/features/leagues";
-import { MatchesResults } from "@/features/matches-results";
 
 import { Spinner } from "@/shared/ui/spinner";
 
+import { MatchesResults } from "./matches-results";
 import { useLazyGetWeekMatchesQuery } from "../hooks/useLazyGetWeekMatchesQuery";
 import { WeekType } from "../enum/week-type";
 
@@ -15,7 +15,7 @@ interface WeekMatchesProps {
 }
 
 export const WeekMatches: FC<WeekMatchesProps> = ({ weekType }) => {
-  const { data: leagues } = useGetLeaguesQuery(null);
+  const { data: leagues } = useGetLeaguesQuery();
 
   const [selectedLeague, setSelectedLeague] = useState<number | undefined>(
     leagues?.[0]?.id

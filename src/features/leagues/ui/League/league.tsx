@@ -1,8 +1,10 @@
 import { FC } from "react";
-import classes from "./league.module.scss";
-import { LeagueSchema } from "../model/types";
+import { LeagueSchema } from "@/entities/league";
+
 import { BtnTheme, Button } from "@/shared/ui/button";
 import { classNames } from "@/shared/lib/classNames";
+
+import classes from "./league.module.scss";
 
 interface LeagueProps {
   league: LeagueSchema;

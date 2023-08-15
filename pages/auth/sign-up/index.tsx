@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 
-import { NextPageWithLayout } from "@/pages-flat/_app";
-
 import { SignUpForm } from "@/widgets/sign-up-form";
 
 import { Container } from "@/shared/ui/container";
+
+import { NextPageWithLayout } from "../../_app";
 
 const SignUp: NextPageWithLayout = () => {
   return (

@@ -1,2 +1,1 @@
-export { type LeagueSchema } from "./model/types";
-export * from "./ui";
+export { type LeagueSchema } from "./types";

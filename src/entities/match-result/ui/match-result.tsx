@@ -1,12 +1,13 @@
 import { FC, HTMLAttributes } from "react";
 
+import { Align, Club } from "@/entities/club";
+
 import { classNames } from "@/shared/lib/classNames";
+import { normalizeDate } from "@/shared/lib/normalize-date";
 
 import { MatchResultSchema } from "../model/types";
 
 import classes from "./match-result.module.scss";
-import { Align, Club } from "./club";
-import { normalizeDate } from "@/shared/lib/normalize-date";
 
 interface MatchResultProps extends HTMLAttributes<HTMLElement> {
   className?: string;
@@ -14,26 +15,26 @@ interface MatchResultProps extends HTMLAttributes<HTMLElement> {
 }
 
 export const MatchResult: FC<MatchResultProps> = ({ className, matchInfo }) => {
-  const isClubAWon = matchInfo.clubAScore > matchInfo.clubBScore;
-  const isClubBWon = matchInfo.clubAScore < matchInfo.clubBScore;
+  const isClubAWon = matchInfo.clubA.score > matchInfo.clubB.score;
+  const isClubBWon = matchInfo.clubA.score < matchInfo.clubB.score;
 
   return (
     <div className={classNames(classes.MatchResult, {}, [className])}>
       <article className={classes.MatchInfo}>
-        <Club clubName={matchInfo.clubAName} won={isClubAWon} />
+        <Club clubName={matchInfo.clubA.name} won={isClubAWon} />
 
         <div className={classes.Scores}>
           <span className={classNames("", { [classes.WonScore]: isClubAWon })}>
-            {matchInfo.clubAScore}
+            {matchInfo.clubA.score}
           </span>
           :
           <span className={classNames("", { [classes.WonScore]: isClubBWon })}>
-            {matchInfo.clubBScore}
+            {matchInfo.clubB.score}
           </span>
         </div>
 
         <Club
-          clubName={matchInfo.clubBName}
+          clubName={matchInfo.clubB.name}
           align={Align.RIGHT}
           won={isClubBWon}
         />

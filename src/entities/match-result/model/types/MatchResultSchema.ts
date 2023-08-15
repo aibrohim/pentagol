@@ -1,9 +1,9 @@
+import { ClubScoreSchema } from "./ClubScoreSchema";
+
 export interface MatchResultSchema {
-  matchId: number;
+  id: number;
   leaugeId: number;
   matchDate: string;
-  clubAName: string;
-  clubAScore: number;
-  clubBName: string;
-  clubBScore: number;
+  clubA: ClubScoreSchema;
+  clubB: ClubScoreSchema;
 }

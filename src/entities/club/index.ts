@@ -1,1 +1,2 @@
-export { ClubSchema } from "./types/club-schema";
+export type { ClubSchema } from "./types/club-schema";
+export * from "./ui";

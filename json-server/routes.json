@@ -1,5 +1,5 @@
 {
   "/league/list": "/leagues",
   "/article/list": "/articles",
-  "/scores*": "/team"
+  "/scores*": "/club"
 }

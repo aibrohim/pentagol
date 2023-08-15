@@ -1,2 +1,2 @@
 export * from "./MatchResultSchema";
-export * from "./MatchClubSchema";
+export * from "./ClubScoreSchema";
