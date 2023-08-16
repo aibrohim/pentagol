@@ -1,0 +1,15 @@
+.MatchesResults {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.MatchResult {
+  flex-basis: calc((100% - 100px) / 5);
+  margin: 10px 10px;
+}

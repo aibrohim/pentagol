@@ -1,0 +1,121 @@
+@mixin clear {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.BtnWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.IconWrapper {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  flex-shrink: 0;
+
+  &:first-child:last-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.BtnContent {
+  width: 100%;
+}
+
+.BtnContent:not(:first-child:last-child) {
+  margin-left: 13px;
+}
+
+.Button {
+  @include clear;
+
+  display: inline-block;
+  transition: 0.15s ease background-color, 0.15s ease box-shadow;
+  background-color: var(--bg-c);
+  border: var(--border-size) solid var(--bg-c);
+
+  border-radius: 10px;
+
+  &:hover {
+    border-color: var(--hover-c);
+    background-color: var(--hover-c);
+  }
+
+  &:active {
+    border-color: var(--active-c);
+    background-color: var(--active-c);
+    box-shadow: 0 0 3px var(--bg-c);
+  }
+}
+
+.Small {
+  font: var(--font-s);
+  font-weight: initial;
+  padding: var(--padding-s);
+}
+
+.Medium {
+  font: var(--font-m);
+  font-weight: initial;
+  padding: var(--padding-m);
+}
+
+.Large {
+  font: var(--font-l);
+  font-weight: initial;
+  padding: var(--padding-l);
+}
+
+.Clear {
+  @include clear;
+
+  --bg-c: inherit;
+}
+
+.Primary {
+  color: #fff;
+
+  --bg-c: var(--primary-color);
+  --hover-c: var(--primary-color-hover);
+  --active-c: var(--primary-color-active);
+}
+
+.Default {
+  color: var(--text-color-inverted);
+  --bg-c: var(--bg-inverted-color);
+  --hover-c: var(--hover-inverted-bg-color);
+  --active-c: var(--active-inverted-bg-color);
+}
+
+.Secondary {
+  color: #000;
+  background-color: #eaeaea;
+}
+
+:global(.App.Dark) .Secondary {
+  color: #fff;
+  background-color: #2f3138;
+}
+
+.Outline {
+  background-color: inherit;
+  color: var(--bg-c);
+
+  &:hover {
+    background-color: inherit;
+    color: var(--hover-c);
+  }
+
+  &:active {
+    background-color: inherit;
+    color: var(--active-c);
+  }
+}
