@@ -1,4 +1,6 @@
 (async () => {
+  require("dotenv").config();
+
   const jsonServer = require("json-server");
   const server = jsonServer.create();
   const path = require("path");
@@ -29,8 +31,8 @@
   });
 
   server.use(router);
-
-  server.listen(8080, () => {
-    console.log("JSON Server is running");
+  console.log(process.env);
+  server.listen(process.env.PORT, () => {
+    console.log("JSON Server is running on port: " + process.env.PORT);
   });
 })();
