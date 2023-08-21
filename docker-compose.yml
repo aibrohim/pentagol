@@ -1,10 +1,16 @@
 services:
   server:
     build: json-server
-    command: node index.js
+    environment:
+      - PORT=8081
     ports:
-      - 8080:8080
+      - 8081:8081
   front: 
-    build: .
+    build: 
+      context: front
+      args:
+        - BACK_BASE_URL=http://localhost:8081
+        - NEXTAUTH_SECRET=hello
+        - NEXTAUTH_URL=http://localhost:3000
     ports: 
-      - "3000:3000"
+      - 3000:3000

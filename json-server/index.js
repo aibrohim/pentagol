@@ -31,7 +31,7 @@
   });
 
   server.use(router);
-  console.log(process.env);
+
   server.listen(process.env.PORT, () => {
     console.log("JSON Server is running on port: " + process.env.PORT);
   });

@@ -9,4 +9,7 @@ module.exports = {
     return config;
   },
   output: "standalone",
+  publicRuntimeConfig: {
+    backURL: process.env.NEXT_PUBLIC_BACK_URL,
+  },
 };

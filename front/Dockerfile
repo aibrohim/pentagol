@@ -1,4 +1,4 @@
-FROM node:17-alpine AS base
+FROM node:18-alpine AS base
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
@@ -17,14 +17,17 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+ARG NEXTAUTH_SECRET
+ENV NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+ARG BACK_BASE_URL
+ENV NEXT_PUBLIC_BACK_URL=${BACK_BASE_URL}
+ARG NEXTAUTH_URL
+ENV NEXTAUTH_URL=http://localhost:3000
+
 RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
-
-ENV NEXTAUTH_SECRET hello
-ENV BACK_URL http://localhost:8080
-ENV NEXTAUTH_URL http://localhost:3000
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -36,9 +39,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-EXPOSE 3000
-
-ENV PORT 3000
-ENV HOSTNAME localhost
+ARG NEXTAUTH_SECRET
+ENV NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+ARG BACK_BASE_URL
+ENV NEXT_PUBLIC_BACK_URL=${BACK_BASE_URL}
+ARG NEXTAUTH_URL
+ENV NEXTAUTH_URL=http://localhost:3000
 
 CMD ["node", "server.js"]
