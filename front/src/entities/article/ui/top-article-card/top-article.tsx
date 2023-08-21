@@ -7,7 +7,7 @@ import { normalizeDate } from "@/shared/lib/normalize-date";
 
 import { ArticleSchema } from "../../types";
 
-// import classes from "./top-article.module.scss";
+import classes from "./top-article.module.scss";
 
 interface TopArticleProps {
   className?: string;
