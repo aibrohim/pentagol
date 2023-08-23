@@ -50,19 +50,15 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           images: '[{
             "name": "",
-            "image": {
             "registry_type": "DOCKER_HUB",
             "registry": ${{ secrets.DOCKERHUB_USERNAME }},
             "repository": "pentagol-back",
             "tag":"latest"
             },
-            },
             {
             "name":"",
-            "image":{
             "registry_type": "DOCKER_HUB",
             "registry": ${{ secrets.DOCKERHUB_USERNAME }},
             "repository": "pentagol-front",
             "tag":"latest"
-            }
             }]'
