@@ -10,8 +10,8 @@ on:
       - "main"
 
 jobs:
-  build-and-deploy-back:
-    name: Build and Deploy Front And Back
+  build-and-deploy-apps:
+    name: Build and Deploy Apps
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -37,6 +37,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pentagol-front:latest
 
   deploy-to-digitalocean:
+    needs: build-and-deploy-back
     runs-on: ubuntu-latest
     name: Deploy To Digital Ocean
     steps:
@@ -50,7 +51,7 @@ jobs:
           images: '[{
             "name": "",
             "image": {
-            "registry_type": "DOCR"
+            "registry_type": "DOCKER_HUB"
             "repository": "pentagol-back"
             "tag":"latest"
             },
@@ -58,7 +59,7 @@ jobs:
             {
             "name":"",
             "image":{
-            "registry_type": "DOCR"
+            "registry_type": "DOCKER_HUB"
             "repository": "pentagol-front"
             "tag":"latest"
             }
