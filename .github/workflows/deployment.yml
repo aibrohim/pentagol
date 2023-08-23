@@ -1,9 +1,13 @@
 name: Deploy to Digital Ocean
 
+# on:
+#   create:
+#     tags:
+#       - "*"
 on:
-  create:
-    tags:
-      - "*"
+  push:
+    branches:
+      - "main"
 
 jobs:
   build-and-deploy-back:
@@ -41,7 +45,7 @@ jobs:
       - name: Deploy
         uses: digitalocean/app_action@main
         with:
-          app_name: first-project
+          app_name: Pentagol
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           images: '[{
             "name": "",
