@@ -32,4 +32,4 @@ jobs:
         with:
           context: ./front
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pentagol-back:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pentagol-front:latest
