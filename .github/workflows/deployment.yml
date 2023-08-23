@@ -51,16 +51,18 @@ jobs:
           images: '[{
             "name": "",
             "image": {
-            "registry_type": "DOCKER_HUB"
-            "repository": "pentagol-back"
+            "registry_type": "DOCKER_HUB",
+            "registry": ${{ secrets.DOCKERHUB_USERNAME }},
+            "repository": "pentagol-back",
             "tag":"latest"
             },
             },
             {
             "name":"",
             "image":{
-            "registry_type": "DOCKER_HUB"
-            "repository": "pentagol-front"
+            "registry_type": "DOCKER_HUB",
+            "registry": ${{ secrets.DOCKERHUB_USERNAME }},
+            "repository": "pentagol-front",
             "tag":"latest"
             }
             }]'
