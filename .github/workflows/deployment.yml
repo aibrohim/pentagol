@@ -37,7 +37,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pentagol-front:latest
 
   deploy-to-digitalocean:
-    needs: build-and-deploy-back
+    needs: build-and-deploy-apps
     runs-on: ubuntu-latest
     name: Deploy To Digital Ocean
     steps:
