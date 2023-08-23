@@ -46,7 +46,7 @@ jobs:
       - name: Deploy
         uses: digitalocean/app_action@main
         with:
-          app_name: Pentagol
+          app_name: first-project
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
           images: '[{
             "name": "",
