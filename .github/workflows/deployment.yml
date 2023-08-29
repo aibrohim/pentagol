@@ -15,8 +15,8 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 2222
+          password: ${{ secrets.PASSWORD }}
+          port: 22
           script: |
             ls -1
       # - name: connect and pull
