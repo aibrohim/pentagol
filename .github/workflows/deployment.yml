@@ -1,3 +1,5 @@
+name: Deploy
+
 on:
   push:
     branches:
@@ -8,7 +10,7 @@ jobs:
   run_pull:
     name: run pull
     runs-on: ubuntu-latest
-
+    timeout-minutes: 5
     steps:
       - name: print out example job
         uses: appleboy/ssh-action@v0.1.10
@@ -19,7 +21,3 @@ jobs:
           port: 22
           script: |
             ls -1
-      # - name: connect and pull
-      #   run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
-      # - name: cleanup
-      #   run: rm -rf ~/.ssh
