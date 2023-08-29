@@ -9,9 +9,9 @@ services:
     build: 
       context: front
       args:
-        - BACK_BASE_URL=http://178.128.204.244:8080
+        - BACK_BASE_URL=http://46.101.197.91:8080
         - NEXTAUTH_SECRET=hello
-        - NEXTAUTH_URL=http://178.128.204.244:3000
+        - NEXTAUTH_URL=http://46.101.197.91:3000
     ports: 
       - 3000:3000
 
