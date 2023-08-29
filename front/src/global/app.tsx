@@ -10,7 +10,6 @@ interface AppProps {
 export const App: FC<AppProps> = ({ children }) => {
   return (
     <div className={classNames("App", {}, createFontsClasses())}>
-      hello
       {children}
     </div>
   );
