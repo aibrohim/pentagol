@@ -18,6 +18,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          timeout-minute: 15
           script: |
             cd ${{ secrets.WORK_DIR }}
             git checkout ${{ secrets.MAIN_BRANCH }}
@@ -28,7 +29,5 @@ jobs:
             export HOST=${{ secrets.SSH_HOST }}
             export PROTOCOL=http
 
-            docker compose down
-            docker rm -f $(docker ps -a -q)
-            docker rmi $(docker images -a -q)
+            docker compose down --rmi "all"
             docker compose up -d
