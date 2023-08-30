@@ -23,8 +23,8 @@ jobs:
             git checkout ${{ secrets.MAIN_BRANCH }}
             git pull
 
-            export BACK_PORT=8081
-            export FRONT_PORT=3001
+            export BACK_PORT=8080
+            export FRONT_PORT=3000
             export HOST=${{ secrets.SSH_HOST }}
             export PROTOCOL=http
 
