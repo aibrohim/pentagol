@@ -13,19 +13,26 @@ export default function App() {
 }
 
 export const getStaticProps = wrapper.getStaticProps((store) => async () => {
-  const [{ data: leagues }] = await Promise.all([
-    store.dispatch(leaguesApi.endpoints.getLeagues.initiate()),
-    store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate()),
-    store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1)),
-  ]);
+  try {
+    const [{ data: leagues }] = await Promise.all([
+      store.dispatch(leaguesApi.endpoints.getLeagues.initiate()),
+      store.dispatch(topArticlesApi.endpoints.getTopArticles.initiate()),
+      store.dispatch(latestArticlesApi.endpoints.getLatestArticles.initiate(1)),
+    ]);
 
-  if (leagues?.[0]) {
-    await store.dispatch(
-      scoresByLeagueApi.endpoints.getScoresByLeague.initiate(leagues[0].id)
-    );
+    if (leagues?.[0]) {
+      await store.dispatch(
+        scoresByLeagueApi.endpoints.getScoresByLeague.initiate(leagues[0].id)
+      );
+    }
+
+    return {
+      props: {},
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {},
+    };
   }
-
-  return {
-    props: {},
-  };
 });
