@@ -29,5 +29,6 @@ jobs:
             export PROTOCOL=http
 
             docker compose down --rmi "all"
-            docker compose build -no-cache
+            docker rm -f $(docker ps -a -q)
+            docker rmi $(docker images -a -q)
             docker compose up -d
