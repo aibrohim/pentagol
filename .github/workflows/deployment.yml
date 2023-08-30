@@ -22,6 +22,14 @@ jobs:
             cd ${{ secrets.WORK_DIR }}
             git checkout ${{ secrets.MAIN_BRANCH }}
             git pull
+
+            export BACK_PORT=8080
+            export FRONT_PORT=3000
+            export HOST=localhost
+            export PROTOCOL=http
+
+            env
+
             docker-compose down
             docker rm -f $(docker ps -a -q)
             docker rmi $(docker images -a -q)
