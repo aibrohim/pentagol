@@ -2,16 +2,15 @@ services:
   server:
     build: json-server
     environment:
-      - PORT=${BACK_PORT}
+      - PORT=8080
     ports:
-      - ${BACK_PORT}:${BACK_PORT}
+      - 8080:8080
   front: 
     build: 
       context: front
       args:
-        - BACK_BASE_URL=${PROTOCOL}://${HOST}:${BACK_PORT}
+        - BACK_BASE_URL=http://46.101.197.91:8080
         - NEXTAUTH_SECRET=hello
-        - NEXTAUTH_URL=${PROTOCOL}://${HOST}:${FRONT_PORT}
+        - NEXTAUTH_URL=http://46.101.197.91:3000
     ports: 
-      - ${FRONT_PORT}:${FRONT_PORT}
-
+      - 3000:3000
