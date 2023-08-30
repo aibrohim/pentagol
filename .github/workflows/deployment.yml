@@ -28,5 +28,7 @@ jobs:
             export HOST=${{ secrets.SSH_HOST }}
             export PROTOCOL=http
 
-            docker compose down --rmi "all"
+            docker compose down
+            docker rm -f $(docker ps -a -q)
+            docker rmi $(docker images -a -q)
             docker compose up -d
