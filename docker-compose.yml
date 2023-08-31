@@ -12,5 +12,5 @@ services:
         - BACK_BASE_URL=http://46.101.197.91:${BACK_PORT}
         - NEXTAUTH_SECRET=hello
         - NEXTAUTH_URL=http://46.101.197.91:3000
-    ports: 
+    ports:
       - 3000:3000

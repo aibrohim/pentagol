@@ -28,7 +28,10 @@ export const getStaticProps = wrapper.getStaticProps(
 
             return error.status === 404
               ? { notFound: true, props: {}, revalidate: 360 }
-              : Promise.reject(error);
+              : {
+                  props: {},
+                  revalidate: 360,
+                };
           }
         }
 
@@ -46,6 +49,7 @@ export const getStaticProps = wrapper.getStaticProps(
       } catch (error) {
         return {
           props: {},
+          revalidate: 360,
         };
       }
     }
