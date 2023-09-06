@@ -11,11 +11,12 @@ services:
     environment:
       - FRONT_PORT
       - BACK_PORT
+      - HOST
     build: 
       context: front
       args:
-        - BACK_BASE_URL=http://46.101.197.91:$BACK_PORT
+        - BACK_BASE_URL=http://$HOST:$BACK_PORT
         - NEXTAUTH_SECRET=hello
-        - NEXTAUTH_URL=http://46.101.197.91:$FRONT_PORT
+        - NEXTAUTH_URL=http://$HOST:$FRONT_PORT
     ports:
       - "$FRONT_PORT:3000"
