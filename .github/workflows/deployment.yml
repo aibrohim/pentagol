@@ -25,4 +25,4 @@ jobs:
             rm .env
             echo "${{ secrets.ENV }}" > .env
             docker compose down --rmi "all"
-            docker compose up -d
+            docker compose up -d --build

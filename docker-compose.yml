@@ -19,4 +19,12 @@ services:
         - NEXTAUTH_SECRET=hello
         - NEXTAUTH_URL=http://$HOST:$FRONT_PORT
     ports:
-      - "$FRONT_PORT:3000"
+      - "$FRONT_PORT:$FRONT_PORT"
+  ngix: 
+    depends_on:
+      - server
+      - front
+    restart: always
+    build: nginx
+    ports:
+      - '80:80'
