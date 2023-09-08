@@ -2,14 +2,14 @@ services:
   server:
     build: json-server
     environment:
-      - BACK_PORT
       - PORT=8000
+    restart: always
     ports:
       - "8000:8000"
   front: 
     environment:
-      - BACK_PORT
       - HOST
+    restart: always
     build: 
       context: front
       args:
