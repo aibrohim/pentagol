@@ -13,7 +13,7 @@ services:
     build: 
       context: front
       args:
-        - BACK_BASE_URL=http://$HOST:8000
+        - BACK_BASE_URL=https://api.pentagol.site
         - NEXTAUTH_SECRET=hello
         - NEXTAUTH_URL=http://$HOST:3000
     ports:
