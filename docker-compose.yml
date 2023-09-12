@@ -18,7 +18,7 @@ services:
         - NEXTAUTH_URL=http://$HOST:3000
     ports:
       - "3000:3000"
-  ngix: 
+  nginx: 
     depends_on:
       - server
       - front
