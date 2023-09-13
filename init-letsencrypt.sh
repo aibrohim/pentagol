@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker compose)" ]; then
   exit 1
 fi
 
-domains=(pentagol.site)
+domains=(api.pentagol.site)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="ibrohim7840@gmail.com" # Adding a valid address is strongly recommended
